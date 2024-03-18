@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CeylonWellness.Web", "Ceylo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CeylonWellness.Data", "CeylonWellness.Data\CeylonWellness.Data.csproj", "{1C5A446A-15A6-44DA-8771-7E33EE374C03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CeylonWellness.Domain", "CeylonWellness.Domain\CeylonWellness.Domain.csproj", "{FC15FF36-5201-47BD-9D01-1D2702B9A2F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CeylonWellness.Repositories", "CeylonWellness.Repositories\CeylonWellness.Repositories.csproj", "{51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{1C5A446A-15A6-44DA-8771-7E33EE374C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C5A446A-15A6-44DA-8771-7E33EE374C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C5A446A-15A6-44DA-8771-7E33EE374C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC15FF36-5201-47BD-9D01-1D2702B9A2F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC15FF36-5201-47BD-9D01-1D2702B9A2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC15FF36-5201-47BD-9D01-1D2702B9A2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC15FF36-5201-47BD-9D01-1D2702B9A2F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
