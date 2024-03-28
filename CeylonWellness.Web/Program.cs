@@ -15,21 +15,21 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<AppDbContext>();
 
-#region External Authentication
+//#region External Authentication
 
-builder.Services.AddAuthentication()
-    .AddGoogle(options =>
-    {
-        options.ClientId = "306909278130-13sttfr5ujqm9h047ic2h6rlmfu8nne9.apps.googleusercontent.com";
-        options.ClientSecret = "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";
-    })
-    .AddFacebook(options =>
-    {
-        options.AppId = "your_facebook_app_id";
-        options.AppSecret = "your_facebook_app_secret";
-    });
+//builder.Services.AddAuthentication()
+//    .AddGoogle(options =>
+//    {
+//        options.ClientId = "306909278130-13sttfr5ujqm9h047ic2h6rlmfu8nne9.apps.googleusercontent.com";
+//        options.ClientSecret = "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";
+//    })
+//    .AddFacebook(options =>
+//    {
+//        options.AppId = "your_facebook_app_id";
+//        options.AppSecret = "your_facebook_app_secret";
+//    });
 
-#endregion
+//#endregion
 
 var app = builder.Build();
 
