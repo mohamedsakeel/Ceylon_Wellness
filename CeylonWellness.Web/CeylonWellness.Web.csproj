@@ -4,29 +4,23 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>703bfe38-e37d-4d1e-b669-9079a92d994f</UserSecretsId>
+    <UserSecretsId>7f98197c-6f64-4f9d-81c4-2ae932a827d6</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.3.3" />
-    <PackageReference Include="Microsoft.AspNet.Identity.Owin" Version="2.2.4" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Owin.Security" Version="4.2.2" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CeylonWellness.Data\CeylonWellness.Data.csproj" />
+    <ProjectReference Include="..\CeylonWellness.Data\CeylonWellness.Datas.csproj" />
+    <ProjectReference Include="..\CeylonWellness.Domain\CeylonWellness.Domain.csproj" />
   </ItemGroup>
 
 </Project>

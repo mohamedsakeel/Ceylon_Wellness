@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace CeylonWellness.Data.Migrations
+namespace CeylonWellness.Datas.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class arre : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

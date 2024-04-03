@@ -4,12 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CeylonWellness.Web", "CeylonWellness.Web\CeylonWellness.Web.csproj", "{253B538F-D346-4310-BA23-F0272B454A3F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1C5A446A-15A6-44DA-8771-7E33EE374C03} = {1C5A446A-15A6-44DA-8771-7E33EE374C03}
+		{51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A} = {51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CeylonWellness.Data", "CeylonWellness.Data\CeylonWellness.Data.csproj", "{1C5A446A-15A6-44DA-8771-7E33EE374C03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CeylonWellness.Datas", "CeylonWellness.Data\CeylonWellness.Datas.csproj", "{1C5A446A-15A6-44DA-8771-7E33EE374C03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CeylonWellness.Domain", "CeylonWellness.Domain\CeylonWellness.Domain.csproj", "{FC15FF36-5201-47BD-9D01-1D2702B9A2F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CeylonWellness.Domain", "CeylonWellness.Domain\CeylonWellness.Domain.csproj", "{FC15FF36-5201-47BD-9D01-1D2702B9A2F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CeylonWellness.Repositories", "CeylonWellness.Repositories\CeylonWellness.Repositories.csproj", "{51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CeylonWellness.Repositories", "CeylonWellness.Repositories\CeylonWellness.Repositories.csproj", "{51A00A72-3ACE-4F6A-B161-99EC0E8BDB9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
