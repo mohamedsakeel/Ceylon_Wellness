@@ -1,0 +1,68 @@
+﻿@model CeylonWellness.Web.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+@if (ViewData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @ViewData["Error"]
+    </div>
+}
+
+@if (ViewData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @ViewData["Error"]
+    </div>
+}
+
+@if (ViewData.ModelState.IsValid == false)
+{
+    <ul class="list-group">
+        @foreach (var fieldState in ViewData.ModelState.Values)
+        {
+            @foreach (var error in fieldState.Errors)
+            {
+                <li class="list-group-item text-danger">@error.ErrorMessage</li>
+            }
+        }
+    </ul>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Use a local account to log in</h2>
+            <form asp-controller="Login" asp-action="Login" method="post" class="form-horizontal" role="form">
+                <input type="hidden" asp-for="ReturnUrl" value="@Context.Request.Query["returnUrl"]" />
+
+                <div class="form-group">
+                    <label asp-for="username" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="username" class="form-control" />
+                        <span asp-validation-for="username" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="password" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="password" class="form-control" />
+                        <span asp-validation-for="password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-primary">Log in</button>
+                    </div>
+                </div>
+            </form>
+            <p>Don't have an account? <a href="@Url.Action("Register", "Register")">Register here</a></p>
+            <h2>Use another service to log in</h2>
+            <hr />
+            <p>
+                <a asp-controller="Login" asp-action="LoginGoogle" class="btn btn-danger">Google</a>
+            </p>
+        </div>
+    </div>
+</div>
