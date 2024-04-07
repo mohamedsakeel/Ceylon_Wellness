@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CeylonWellness.Datas.Migrations
 {
     /// <inheritdoc />
-    public partial class arre : Migration
+    public partial class ino : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
