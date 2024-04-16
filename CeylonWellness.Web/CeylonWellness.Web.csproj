@@ -24,4 +24,8 @@
     <ProjectReference Include="..\CeylonWellness.Domain\CeylonWellness.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Assets\" />
+  </ItemGroup>
+
 </Project>
