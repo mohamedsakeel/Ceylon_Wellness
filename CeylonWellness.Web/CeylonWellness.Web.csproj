@@ -11,7 +11,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -23,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CeylonWellness.Domain\CeylonWellness.Domain.csproj" />
-    <ProjectReference Include="..\CeylonWellness.Repositories\CeylonWellness.Repositories.csproj" />
   </ItemGroup>
 
   <ItemGroup>
