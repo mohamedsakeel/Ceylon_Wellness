@@ -1,10 +1,13 @@
 using CeylonWellness.Domain.Models;
+using CeylonWellness.Repositories.Repositories;
 using CeylonWellness.Web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IFAQRepository, FAQRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
