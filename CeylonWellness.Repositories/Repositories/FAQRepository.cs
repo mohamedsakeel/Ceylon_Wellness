@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,14 @@ namespace CeylonWellness.Repositories.Repositories
     public class FAQRepository : IFAQRepository
     {
         private readonly HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
 
-        public FAQRepository()
+        public FAQRepository(IConfiguration configuration)
         {
+            _configuration = configuration;
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("https://api.openai.com");
-            _httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer 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");
+            _httpClient.DefaultRequestHeaders.Add("Authorization", _configuration["OpenAI:ApiKey"]);
         }
 
         public async Task<string> QueryFAQ(string question)
