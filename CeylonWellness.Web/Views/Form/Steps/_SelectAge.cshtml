@@ -1,7 +1,67 @@
 ﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
 
-<h3>Select Age</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-<input asp-for="Age" type="number" id="Age"/>
+        .form-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center; /* Center align text */
+            margin: auto; /* Center the form horizontally */
+        }
 
-<button type="button" onclick="loadNextStep('Steps/_SelectGender')">Next</button>
+            .form-container h3 {
+                margin-top: 0;
+                color: #007bff; /* Blue color */
+            }
+
+            .form-container input[type="number"] {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            .form-container button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+
+                .form-container button:hover {
+                    background-color: #0056b3;
+                }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h3>What is your Age</h3>
+        <input asp-for="Age" type="number" id="Age" />
+        <button type="button" onclick="loadNextStep('Steps/_SelectGender')">Continue</button>
+    </div>
+</body>
+</html>
