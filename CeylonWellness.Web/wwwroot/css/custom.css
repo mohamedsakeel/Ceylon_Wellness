@@ -27,3 +27,45 @@
     border-radius: 50%;
     margin-right: 10px;
 }
+
+//Age partial view
+
+.container-width {
+    max-width: 65%;
+}
+
+.mxwidth {
+    max-width: 250px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.cl {
+    background: #435EBF;
+}
+
+@media screen and (max-width:480px){
+    .mxwidth{
+        max-width:100%;
+    }
+
+    .container-width{
+        max-width: 100%;
+    }
+
+    h3{
+        font-size: 24px;
+    }
+
+    .cl {
+        font-size: 14px !important;
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    wth {
+        max-width: 100%;
+    }
+}
+
+

@@ -1,9 +1,13 @@
 ﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+@{
+    Layout = "~/Views/Shared/_MultiFormLayout.cshtml";
+}
 
-<div id="form-container">
+
+<div class="mt-5" id="form-container">
     <!-- Step content will be loaded here -->
     <form id="multistepform" method="post">
-        @await Html.PartialAsync("Steps/_SelectAge");
+        @await Html.PartialAsync("Steps/_SelectAge")
     </form>
     
 </div>

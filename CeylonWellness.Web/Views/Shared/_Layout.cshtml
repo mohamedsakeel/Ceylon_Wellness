@@ -31,13 +31,13 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                     <a class="navbar-brand mt-2 mt-lg-0" asp-area="" asp-controller="Home" asp-action="Index">
                         <img src="/Assets/Logo.svg"
                              height="40"
                              alt="Ceylon Wellness Logo"
                              loading="lazy" />
                     </a>
+                    
                     @if (User.Identity.IsAuthenticated)
                     {
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -123,8 +123,8 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - CeylonWellness.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container d-flex justify-content-center">
+            &copy; 2024 - CeylonWellness - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <!-- MDB -->
