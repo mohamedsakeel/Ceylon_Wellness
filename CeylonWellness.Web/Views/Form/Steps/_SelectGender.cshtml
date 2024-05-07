@@ -1,8 +1,21 @@
 ﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
 
-<label for="gender">Gender:</label>
-<select asp-for="Gender" id="gender">
-    <option value="M">Male</option>
-    <option value="F">Female</option>
-    <option value="O">Other</option>
-</select>
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 70vh;">
+    <div class="card p-4 shadow-lg rounded-5" style="width: 800px;">
+        <div class="card-body">
+            
+            <h3 class="card-title">Select Gender</h3>
+            <div class="d-flex flex-column">
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-5" onclick="setGender('male')">Male</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block" onclick="setGender('female')">Female</button>
+            </div>
+            <input type="hidden" id="gender" name="gender" />
+            <button type="button" onclick="loadNextStep('Steps/_goal')" class="btn btn-primary btn-block mt-5">Continue</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
