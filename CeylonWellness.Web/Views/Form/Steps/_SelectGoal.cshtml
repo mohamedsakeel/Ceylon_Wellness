@@ -11,6 +11,7 @@
                 <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setGoal('maintainweight')">Maintain Weight</button>
 
             </div>
+
             <input type="hidden" id="goal" name="goal" />
             <div class="row mb-3">
                 <div class="col-md-8">
@@ -18,12 +19,14 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <button type="button" onclick="loadNextStep('Steps/_SelectAge')" class="btn btn-secondary btn-lg btn-block">Previous</button>
-                </div>
-                <div class="col-md-6">
-                    <button type="button" onclick="loadNextStep('Steps/_SelectGoal')" class="btn btn-primary btn-lg btn-block">Continue</button>
+            <div class="col-md-15">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" onclick="loadNextStep('Steps/_SelectGender')" class="btn btn-secondary btn-lg btn-block">Previous</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onclick="loadNextStep('Steps/_SelectDieteryPreference')" class="btn btn-primary btn-lg btn-block">Continue</button>
+                    </div>
                 </div>
             </div>
         </div>
