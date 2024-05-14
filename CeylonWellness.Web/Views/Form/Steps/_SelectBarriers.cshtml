@@ -1,0 +1,44 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 70vh;">
+    <div class="card p-4 shadow-lg rounded-5" style="width: 800px;">
+        <div class="card-body">
+
+            <h3 class="card-title">Do you have any barriers to follow a diet plan?</h3>
+            <div class="d-flex flex-column mb-3">
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setBarriers('motivation')">Lack of motivation</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setBarriers('schedule')">Lack of time due to busy schedule</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setBarriers('cookingSkills')">Limited Cooking Skills</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setBarriers('emotionalEating')">Emotional Eating</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setBarriers('nutritionalKnowledgeGap')">Nutritional Knowledge Gap</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setBarriers('sleepingProblems')">Sleeping Problems</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setBarriers('other')">Other</button>
+                <div id="otherInput" style="display: none;">
+                    <input type="text" id="otherText" class="form-control mb-2" placeholder="Please specify">
+                </div>
+            </div>
+            <input type="hidden" id="barrieres" name="barrieres" />
+            <div class="row mb-3">
+                <div class="col-md-8">
+                    <!-- Empty column to create space -->
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" onclick="loadNextStep('Steps/_SelectDieteryPreference')" class="btn btn-secondary btn-lg btn-block">Previous</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onclick="loadNextStep('Steps/_SelectDieteryPreference')" class="btn btn-primary btn-lg btn-block">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
