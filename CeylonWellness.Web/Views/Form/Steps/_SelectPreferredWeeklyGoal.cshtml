@@ -1,0 +1,38 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 70vh;">
+    <div class="card p-4 shadow-lg rounded-5" style="width: 800px;">
+        <div class="card-body">
+
+            <h3 class="card-title">Select your preferred weekly goal</h3>
+            <div class="d-flex flex-column mb-3">
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setActivityLevel('relaxed')">Relaxed</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setActivityLevel('normal')">Normal</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setActivityLevel('strict')">Strict</button>
+
+            </div>
+            <input type="hidden" id="activityLevel" name="activityLevel" />
+            <div class="row mb-3">
+                <div class="col-md-8">
+                    <!-- Empty column to create space -->
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" onclick="loadNextStep('Steps/_SelectActivityLevel')" class="btn btn-secondary btn-lg btn-block">Previous</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onclick="loadNextStep('Steps/_SelectActivityLevel')" class="btn btn-primary btn-lg btn-block">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
