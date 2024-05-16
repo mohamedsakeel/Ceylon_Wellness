@@ -1,0 +1,40 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 70vh;">
+    <div class="card p-4 shadow-lg rounded-5" style="width: 800px;">
+        <div class="card-body">
+
+            <h3 class="card-title">Do you follow any of these diets?</h3>
+            <div class="d-flex flex-column mb-3">
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setActivityLevel('sedentary')">Sedentary</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setActivityLevel('lightlyactive')">Lightly Active</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setActivityLevel('moderatelyactive')">Moderately Active</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setActivityLevel('veryactive')">Very Active</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setActivityLevel('highlyactive')">Highly Active</button>
+
+            </div>
+            <input type="hidden" id="activityLevel" name="activityLevel" />
+            <div class="row mb-3">
+                <div class="col-md-8">
+                    <!-- Empty column to create space -->
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" onclick="loadNextStep('Steps/_SelectDiets')" class="btn btn-secondary btn-lg btn-block">Previous</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" onclick="loadNextStep('Steps/_SelectActivityLevel')" class="btn btn-primary btn-lg btn-block">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
