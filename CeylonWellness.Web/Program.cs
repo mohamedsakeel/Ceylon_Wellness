@@ -11,6 +11,7 @@ builder.Services.AddScoped<IFAQRepository, FAQRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddProgressiveWebApp();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
