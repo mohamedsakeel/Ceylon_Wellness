@@ -18,6 +18,9 @@ namespace CeylonWellness.Web.Data
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<DietPlan> DietPlans { get; set; }
+        public DbSet<RecipeMeal> RecipeMeals { get; set; }
+        public DbSet<NutritionQuantity> NutritionQuantities { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

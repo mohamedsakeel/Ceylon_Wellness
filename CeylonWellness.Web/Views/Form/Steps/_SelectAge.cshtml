@@ -8,13 +8,56 @@
     <title>Multi-Step Form</title>
 
     <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+
 </head>
 <body>
-    <div class="container-sm container-width">
+    @* <div class="container-sm container-width">
         <div class="d-flex flex-column align-items-center">
             <h3>What is your Age</h3>
             <input asp-for="Age" type="number" id="Age" class="form-control mt-4 mxwidth" required/>
-            <button class=" cl btn btn-primary mt-5" type="button" onclick="loadNextStep('Steps/_SelectGender')">Continue</button>
+            <button class=" cl btn btn-primary mt-5" type="button" onclick="ageVerification('Steps/_SelectGender')">Continue</button>
+        </div>
+    </div> *@
+
+
+    <div class="container">
+        <div class="row text-center">
+            <h5 class="text-primary mb-3">Nutrition Tailored, Budget Friendly</h5>
+            <p class="text-muted my-3">2-MINUTE QUIZ</p>
+            <h2 class="text-primary mt-3 mb-5">Select your Age</h2>
+            <div class="col-6 col-md-3">
+                <div class="age-group-card-container" onclick="loadNextStep('Steps/_SelectGender')">
+                    <div class="age-group-card">
+                        <img src="/Assets/age-18-25-lg-2x.f6168f5c26345ae5.png" class="img-fluid" alt="Age Group 18-25">
+                        <div class="age-group-label">18 - 25</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="age-group-card-container" onclick="loadNextStep('Steps/_SelectGender')">
+                    <div class="age-group-card">
+                        <img src="/Assets/age-26-35-lg-2x.8d6a978e9ee0ba25.png" class="img-fluid" alt="Age Group 26-35">
+                        <div class="age-group-label">26 - 35</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="age-group-card-container" onclick="loadNextStep('Steps/_SelectGender')">
+                    <div class="age-group-card">
+                        <img src="/Assets/age-36-45-lg-2x.5a327ab16adf3c40.png" class="img-fluid" alt="Age Group 36-45">
+                        <div class="age-group-label">36 - 45</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="age-group-card-container" onclick="loadNextStep('Steps/_SelectGender')">
+                    <div class="age-group-card">
+                        <img src="/Assets/age-46-plus-lg-2x.33cc9cf798bc4c7f.png" class="img-fluid" alt="Age Group 46+">
+                        <div class="age-group-label">46+</div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-muted mt-5"><small>By continuing, you confirm and guarantee that you have read, understood, and agreed to our Terms of Use and Privacy Notice</small></p>
         </div>
     </div>
 </body>

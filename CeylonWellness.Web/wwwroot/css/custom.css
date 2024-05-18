@@ -68,4 +68,78 @@
     }
 }
 
+/*Select age form step*/
+
+.age-group-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 300px; /* Set the maximum width for the cards */
+    margin-bottom: 20px;
+    background: #EAECFB;
+    padding-top: 20px;
+}
+
+.age-group-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.age-group-card .age-group-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #3f51b5;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.2rem;
+}
+
+.age-group-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/*Select age form step end */
+
+/*Select gender start*/
+
+.gender-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px; /* Adjust the width as needed */
+    margin: 10px auto; /* Center align the buttons */
+    font-size: 18px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    border-radius: 10px;
+}
+
+.gender-btn i {
+    font-size: 24px; /* Adjust the size of the icon */
+}
+
+.gender-btn span {
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 10px; /* Add padding to align the text */
+    text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+    .gender-btn {
+        width: 100%; /* Full width for mobile devices */
+        margin: 10px 0; /* Margin on top and bottom */
+    }
+}
+
+
+/*Select gender end*/
+
 
