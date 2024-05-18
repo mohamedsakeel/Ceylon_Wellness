@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace CeylonWellness.Domain.Models
 {
-    public class Goal
+    public class RecipeMeal
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        public string GoalName { get; set; }
-        public ICollection<DietPlan> DietPlans { get; set; }
+        public int Id { get; set; }
+        public Guid RecipeId { get; set; }
 
+        public Guid MealId { get; set; }
     }
 }
