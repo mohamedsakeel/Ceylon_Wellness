@@ -42,6 +42,7 @@
 
 .cl {
     background: #435EBF;
+    text-transform:capitalize;
 }
 
 @media screen and (max-width:480px){
@@ -142,4 +143,136 @@
 
 /*Select gender end*/
 
+/*set age start*/
 
+.big-input{
+    max-width: 200px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.set-bottom {
+    position: fixed;
+    bottom: 40px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Ensure it stays above other content */
+}
+/*set age end*/
+
+/*weight and height start*/
+
+.notice {
+    background: #DEF3F0;
+    padding: 10px;
+    border: 1px solid #6DCDBF;
+    border-radius: 8px;
+    color: #19318A;
+    max-width: 600px;
+    font-size: 14px;
+}
+
+.notice-warning {
+    background: #f2f3de;
+    padding: 10px;
+    border: 1px solid #FFCC00;
+    border-radius: 8px;
+    color: #19318A;
+    max-width: 600px;
+    font-size: 14px;
+}
+
+/*weight and height end*/
+
+/*goal start*/
+
+.goal-title{
+    font-size: 15px;
+}
+
+.goal-subtitle{
+    font-size: 12px;
+    padding-left: 0px !important;
+    font-weight: 200;
+}
+
+.circle {
+    background: #DEF3F0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #6DCDBF;
+    border-radius: 50%;
+}
+
+.bton-image{
+    width: 80px;
+    position: relative;
+    top: 5px;
+}
+
+.selected{
+    padding-top: 5px;
+    padding-bottom:5px;
+}
+
+.btn-selected {
+    background: #435ebf;
+    color: white;
+}
+
+.btn-selected:hover {
+    background: #435ebf; /* Keep the background color same */
+    color: white; /* Keep the text color same */
+}
+
+/*goal end*/
+
+/*barriers start*/
+
+.txt {
+    text-transform: none;
+}
+
+/*barriers end*/
+
+/* meat pref Start */
+
+.padd {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+}
+
+/* meat pref End */
+
+.padd-bn {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.act-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: 10px
+
+}
+
+.act-subtitle {
+    font-size: 12px;
+    padding-left: 0px !important;
+    font-weight: 200;
+    text-transform: none !important;
+}
+
+.recomend-text {
+    color: red;
+    font-size: 12px;
+    position: absolute; /* Changed from absolute */
+    top: 5px; /* Adjust for slight spacing from top */
+    right: 15px;
+    text-transform: none !important;
+}
+
+.hide{
+    display: none;
+}

@@ -1,0 +1,48 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+
+<div class="container container-width contload">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3">Select your preferred weekly goal to: <span id="goal-text"></span></h2>
+        <input type="hidden" asp-for="WeeklyGoal" id="WeeklyGoal" />
+        <a class="btn btn-outline-primary gender-btn selected padd-bn position-relative" id="gain" data-weekgoal="Relaxed" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectWeeklyGoal(this)">
+            
+            <span class="act-title">Relaxed<br /><span class="act-subtitle">0.25 Kg (0.5 lb) per week</span></span>
+            <span class="recomend-text">* Recommended</span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-weekgoal="Normal" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectWeeklyGoal(this)">
+            
+            <span class="act-title">Normal<br /><span class="act-subtitle">0.5 Kg (1.1 lb) per week</span></span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-weekgoal="Strict" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectWeeklyGoal(this)">
+            
+            <span class="act-title">Strict<br /><span class="act-subtitle">1 Kg (2.2 lb) per week</span></span>
+        </a>
+        <div id="visible" class="hide">
+            <p class="notice mt-5">
+                <strong>Note: </strong>Based on your selection (<span id="weekgoalname"></span>), you must take <span id="weekgoalamnt"></span> calories <span id="lessmore"></span> per week to <span id="goal-texts"></span>
+            </p>
+        </div>
+
+        <div id="visibles" class="hide">
+            <p class="notice-warning mt-1">
+                <strong>Warning: </strong>Strict goal is not recommended for starters and beginners.</span>
+            </p>
+        </div>
+
+
+
+        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_SelectMealAmount')">Continue</button>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        updateGoal(); // Initial call when the document is ready
+
+        // Assuming you load the partial view via AJAX, you need to re-apply the function
+        $('#contload').on('load', function () {
+            updateGoal();
+        });
+    });
+</script>

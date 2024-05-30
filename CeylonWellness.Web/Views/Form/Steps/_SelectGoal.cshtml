@@ -1,35 +1,33 @@
 ﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
 
-<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 70vh;">
-    <div class="card p-4 shadow-lg rounded-5" style="width: 800px;">
-        <div class="card-body">
 
-            <h3 class="card-title">What do you want to achieve?</h3>
-            <div class="d-flex flex-column mb-3">
-                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setGoal('gainweight')">Gain Weight</button>
-                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setGoal('loseweight')">Lose Weight</button>
-                <button type="button" class="btn btn-outline-primary btn-lg btn-block mb-2" onclick="setGoal('maintainweight')">Maintain Weight</button>
 
-            </div>
+<div class="container container-width">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3 mb-5">What do you want to achieve</h2>
+        <input type="hidden" asp-for="goal" id="goal" />
+        <a class="btn btn-outline-primary gender-btn selected goal" id="gain" data-goal="Gain Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
+            <div class="circle"></div>
+            <span class="goal-title">Gain Weight<br /><span class="goal-subtitle">Eat more calories than you burn</span></span>
+            <i><img class="bton-image" src="/Assets/male-lose-weight-2x.c1aa4a86ceeef081.png" /></i>
+        </a>
 
-            <input type="hidden" id="goal" name="goal" />
-            <div class="row mb-3">
-                <div class="col-md-8">
-                    <!-- Empty column to create space -->
-                </div>
-            </div>
+        <a class="btn btn-outline-primary gender-btn selected goal" id="lose" data-goal="Lose Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
+            <div class="circle"></div>
+            <span class="goal-title">Lose Weight<br /><span class="goal-subtitle">Eat fewer calories than you burn</span></span>
+            <i><img class="bton-image" src="/Assets/male-heart-health-2x.cbb00f39e6bfb133.png" /></i>
+        </a>
 
-            <div class="col-md-15">
-                <div class="row">
-                    <div class="col-md-6">
-                        <button type="button" onclick="loadNextStep('Steps/_SelectGender')" class="btn btn-secondary btn-lg btn-block">Previous</button>
-                    </div>
-                    <div class="col-md-6">
-                        <button type="button" onclick="loadNextStep('Steps/_SelectDieteryPreference')" class="btn btn-primary btn-lg btn-block">Continue</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <a class="btn btn-outline-primary gender-btn selected goal" id="maint" data-goal="Maintain Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
+            <div class="circle"></div>
+            <span class="goal-title">Maintain Weight<br /><span class="goal-subtitle">Eat the amount of calories that you burn</span></span>
+            <i><img class="bton-image" src="/Assets/male-get-firm-2x.86dc6f158f75aeb8.png" /></i>
+        </a>
+
+        <h2 class="text-primary my-5">What is your target weight?</h2>
+        <input type="number" id="targetweight" class="form-control big-input" />
+
+        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="TargetWeightVerification('Steps/_SelectBarrier')">Continue</button>
     </div>
 </div>
 

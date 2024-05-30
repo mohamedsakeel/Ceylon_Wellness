@@ -1,0 +1,15 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+
+<div class="container container-width">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3">What is your dietary preference?</h2>
+        <input type="hidden" asp-for="MealPreference" id="Diatpref" />
+        <a class="btn btn-outline-primary gender-btn txt dietpref" data-pref="Non Vegetarian" onclick="selectDiatpref(this)">Non Vegetarian</a>
+        <a class="btn btn-outline-primary gender-btn txt dietpref" data-pref="Vegan" onclick="selectDiatpref(this)">Vegan</a>
+        <a class="btn btn-outline-primary gender-btn txt dietpref" data-pref="Vegetarian" onclick="selectDiatpref(this)">Vegetarian</a>
+        <a class="btn btn-outline-primary gender-btn txt dietpref" data-pref="None" onclick="selectDiatpref(this)">None</a>
+
+        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_MeatPref')">Continue</button>
+    </div>
+</div>
