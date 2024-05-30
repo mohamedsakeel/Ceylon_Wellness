@@ -12,7 +12,7 @@ namespace CeylonWellness.Domain.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string GoalName { get; set; }
-        public ICollection<DietPlan> DietPlans { get; set; }
+        public ICollection<DietPlan>? DietPlans { get; set; }
 
     }
 }

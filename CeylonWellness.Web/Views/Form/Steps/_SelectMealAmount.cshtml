@@ -1,0 +1,30 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+
+<div class="container container-width contload">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3">Select your preferred weekly goal to: <span id="goal-text"></span></h2>
+        <input type="hidden" asp-for="NoofMealsperDay" id="mealamount" />
+
+        <a class="btn btn-outline-primary gender-btn selected padd-bn position-relative py-4" id="gain" data-noofmeal="2" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectNoOfMeal(this)">
+            
+            <span class="act-title">2 Meals per day</span>
+            <span class="recomend-text">* Recommended for weight loss</span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn py-4" id="gain" data-noofmeal="3" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectNoOfMeal(this)">
+            
+            <span class="act-title">3 Meals per day</span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn position-relative" id="gain" data-noofmeal="4" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectNoOfMeal(this)">
+            
+            <span class="act-title">3 Meals, 1 Snack<br /><span class="act-subtitle">3 Main meals and 1 Morning snack</span></span>
+            <span class="recomend-text">* Recommended for weight gain</span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-noofmeal="5" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectNoOfMeal(this)">
+
+            <span class="act-title">3 Meals, 2 Snacks<br /><span class="act-subtitle">3 Main meals and 1 Morning snack and 1 evening snack</span></span>
+        </a>
+
+        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_BMISummary')">Continue</button>
+    </div>
+</div>

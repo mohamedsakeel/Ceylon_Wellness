@@ -18,6 +18,7 @@ namespace CeylonWellness.Domain.Models
         public int MaintaincalAmount { get; set; }
         public float TargetWeight { get; set; }
         public string MealPreference { get; set; }
+        public string MeatType { get; set; }
         public int NoofMealsperDay { get; set; }
         [ForeignKey("User")]
         public string UserId { get; set; }

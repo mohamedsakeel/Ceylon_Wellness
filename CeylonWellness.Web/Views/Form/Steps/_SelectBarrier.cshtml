@@ -1,0 +1,19 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+
+<div class="container container-width">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3">Do you have any barriers to follow a diet plan?</h2>
+        <p class="text-primary mb-5">Select which apply</p>
+
+        <a class="btn btn-outline-primary gender-btn txt barrier" onclick="selectBarriers(this)">Lack of motivation</a>
+        <a class="btn btn-outline-primary gender-btn txt barrier" onclick="selectBarriers(this)">Lack of Time due to busy schedule</a>
+        <a class="btn btn-outline-primary gender-btn txt barrier" onclick="selectBarriers(this)">Limited Cooking Skills</a>
+        <a class="btn btn-outline-primary gender-btn txt barrier" onclick="selectBarriers(this)">Emotional Eating</a>
+        <a class="btn btn-outline-primary gender-btn txt barrier" onclick="selectBarriers(this)">Nutritional Knowledge Gap</a>
+        <a class="btn btn-outline-primary gender-btn txt barrier" onclick="selectBarriers(this)">Sleeping Problems</a>
+        <a class="btn btn-outline-primary gender-btn txt barrier" onclick="selectBarriers(this)">Other</a>
+
+        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_SelectDiatpref')">Continue</button>
+    </div>
+</div>

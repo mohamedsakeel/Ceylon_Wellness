@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using CeylonWellness.Web.Extensions;
 
 namespace CeylonWellness.Web.Controllers
 {
@@ -25,24 +26,42 @@ namespace CeylonWellness.Web.Controllers
         [HttpPost]
         public IActionResult SaveStepData(MultiStepFormViewModel modelData)
         {
-            var jsonString = HttpContext.Session.GetString(SessionKey);
-            var formData = JsonSerializer.Deserialize<MultiStepFormViewModel>(jsonString);
-
-            if (formData == null)
+            // Get existing form data from session or initialize if it doesn't exist
+            var formData = HttpContext.Session.Get<MultiStepFormViewModel>(SessionKey) ?? new MultiStepFormViewModel();
+            // Update formData with modelData values
+            if (modelData.Age != 0)
             {
-                InitializeSession();
-                jsonString = HttpContext.Session.GetString(SessionKey);
-                formData = JsonSerializer.Deserialize<MultiStepFormViewModel>(jsonString);
+                formData.Age = modelData.Age;
+            }
+            if (modelData.Gender != null)
+            {
+                formData.Gender = modelData.Gender;
+            }
+            if (modelData.Weight != 0)
+            {
+                formData.Weight = modelData.Weight;
+            }
+            if (modelData.Height != 0)
+            {
+                formData.Height = modelData.Height;
+            }
+            if (modelData.TargetWeight != 0)
+            {
+                formData.TargetWeight = modelData.TargetWeight;
+            }
+            if (modelData.goal != null)
+            {
+                formData.goal = modelData.goal;
+            }
+            if (modelData.ActivityLevel != null)
+            {
+                formData.ActivityLevel = modelData.ActivityLevel;
             }
 
-            // Update formData with modelData values (Example)
-            formData.Age = modelData.Age;
-            //formData.Gender = modelData.Gender;
-            // ... add more properties as you add steps
+            // Add similar checks for other properties as needed
 
-            // Reserialize before storing
-            jsonString = JsonSerializer.Serialize(formData);
-            HttpContext.Session.SetString(SessionKey, jsonString);
+            // Update session data for the specific property being modified
+            HttpContext.Session.Set(SessionKey, formData);
 
             return Ok();
         }

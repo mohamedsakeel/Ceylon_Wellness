@@ -1,0 +1,31 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+
+<div class="container container-width">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3">What is your activity level?</h2>
+        <input type="hidden" asp-for="ActivityLevel" id="ActivityLevel" />
+        <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-actlevel="Sedentary" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectActivity(this)">
+            <i><img width="32px" src="/Assets/signal 1.svg" /></i>
+            <span class="act-title">Sedentary<br /><span class="act-subtitle">Little to no exercise</span></span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-actlevel="Lighly active" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectActivity(this)">
+            <i><img width="32px" src="/Assets/signal 2.svg" /></i>
+            <span class="act-title">Lighly active<br /><span class="act-subtitle">Light exercise / sports 1-2 days per week</span></span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-actlevel="Moderately active" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectActivity(this)">
+            <i><img width="32px" src="/Assets/signal 3.svg" /></i>
+            <span class="act-title">Moderately active<br /><span class="act-subtitle">Moderate exercise / sports 3-4 days per week</span></span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-actlevel="Very active" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectActivity(this)">
+            <i><img width="32px" src="/Assets/signal 4.svg" /></i>
+            <span class="act-title">Very active<br /><span class="act-subtitle">Hard exercise / sports 6-7 days per week</span></span>
+        </a>
+        <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-actlevel="Highly active" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectActivity(this)">
+            <i><img width="32px" src="/Assets/signal 5.svg" /></i>
+            <span class="act-title">Highly active<br /><span class="act-subtitle">Hard daily exercise / sports & physical job</span></span>
+        </a>
+
+        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_SelectWeekGoal')">Continue</button>
+    </div>
+</div>

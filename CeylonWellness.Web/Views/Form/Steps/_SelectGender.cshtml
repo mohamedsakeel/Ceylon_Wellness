@@ -1,15 +1,15 @@
 ﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
 
-<link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
 
 <div class="container">
     <div class="col-12 col-md-12 text-center">
+        <input type="hidden" id="gender" asp-for="Gender" />
         <h2 class="text-primary mt-3 mb-5">Select your Gender</h2>
-        <button class="btn btn-outline-primary gender-btn" type="button" id="male-btn" value="Male" data-mdb-ripple-init data-mdb-ripple-color="dark">
+        <button class="btn btn-outline-primary gender-btn" type="button" id="male-btn" value="Male" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="setGender('Male')">
             <span>Male</span>
             <i class="fas fa-mars"></i>
         </button>
-        <button class="btn btn-outline-primary gender-btn" type="button" id="female-btn" value="Female" data-mdb-ripple-init data-mdb-ripple-color="dark">
+        <button class="btn btn-outline-primary gender-btn" type="button" id="female-btn" value="Female" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="setGender('Female')">
             <span>Female</span>
             <i class="fas fa-venus"></i>
         </button>

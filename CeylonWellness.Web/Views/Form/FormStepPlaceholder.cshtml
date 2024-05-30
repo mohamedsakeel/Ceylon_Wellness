@@ -3,14 +3,22 @@
     Layout = "~/Views/Shared/_MultiFormLayout.cshtml";
 }
 
+<link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
 
-<div class="mt-5" id="form-container">
-    <!-- Step content will be loaded here -->
-    <form id="multistepform" method="post">
+<form id="multistepform" method="post">
+    <div class="mt-5" id="form-container">
         @await Html.PartialAsync("Steps/_SelectAge")
-    </form>
-    
-</div>
+    </div>
+    @* <input type="hidden" asp-for="Age" name="Age" id="Age" />
+    <input type="hidden" asp-for="Gender" name="Gender" id="Gender" />
+    <input type="hidden" asp-for="Weight" name="Weight" id="Weight" />
+    <input type="hidden" asp-for="Height" name="Height" id="Height" />
+    <input type="hidden" asp-for="TargetWeight" name="TargetWeight" id="TargetWeight" />
+    <input type="hidden" asp-for="ActivityLevel" name="ActivityLevel" id="ActivityLevel" /> *@
+    <input type="hidden" name="goal" id="goals" />
+    <input type="hidden" id="bmi" />
+
+</form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
