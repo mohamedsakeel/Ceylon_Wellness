@@ -6,6 +6,7 @@
     <div class="d-flex flex-column align-items-center">
         <h2 class="text-primary mt-3 mb-5">What do you want to achieve</h2>
         <input type="hidden" asp-for="goal" id="goal" />
+
         <a class="btn btn-outline-primary gender-btn selected goal" id="gain" data-goal="Gain Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
             <div class="circle"></div>
             <span class="goal-title">Gain Weight<br /><span class="goal-subtitle">Eat more calories than you burn</span></span>
@@ -24,13 +25,12 @@
             <i><img class="bton-image" src="/Assets/male-get-firm-2x.86dc6f158f75aeb8.png" /></i>
         </a>
 
-        <h2 class="text-primary my-5">What is your target weight?</h2>
+        <h2 id="hidethis" class="text-primary my-5">What is your target weight?</h2>
         <input type="number" id="targetweight" class="form-control big-input" />
 
         <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="TargetWeightVerification('Steps/_SelectBarrier')">Continue</button>
     </div>
 </div>
-
 
 
 

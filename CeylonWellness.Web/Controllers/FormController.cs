@@ -84,11 +84,13 @@ namespace CeylonWellness.Web.Controllers
             return RedirectToAction("Success");
         }
 
+#region Session Initialize
         //Initilize Session
         private void InitializeSession()
         {
             string jsonString = JsonSerializer.Serialize(new MultiStepFormViewModel());
             HttpContext.Session.SetString(SessionKey, jsonString);
         }
+#endregion
     }
 }

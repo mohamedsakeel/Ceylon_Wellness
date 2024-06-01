@@ -1,6 +1,12 @@
 ﻿@model RegisterViewModel
 <link rel="stylesheet" href="/css/custom.css" />
 
+@{
+    ViewData["Title"] = "Enter Date of Birth";
+    var days = Enumerable.Range(1, 31).Select(x => new SelectListItem { Value = x.ToString(), Text = x.ToString() }).ToList();
+    var months = Enumerable.Range(1, 12).Select(x => new SelectListItem { Value = x.ToString(), Text = x.ToString() }).ToList();
+}
+
 <style>
     .hr-with-or {
         display: flex;
@@ -38,13 +44,36 @@
                     </div>
                 </div>
             </div>
+
         
             <div class="row">
-                <div class="col-12">
+                <div class="col-6">
                     <div class="form-group">
                         <label for="UserName" class="text-primary mt-3">UserName</label>
                         <input asp-for="UserName" class="form-control" type="text"/>
                         <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Gender" class="control-label text-primary mt-3">Gender</label>
+                        <div class="row d-flex">
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input asp-for="Gender" class="form-check-input text-primary mt-2" type="radio" value="Male" id="genderMale" />
+                                    <label class="form-check-label text-primary mt-2" for="genderMale">Male</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-check">
+                                    <input asp-for="Gender" class="form-check-input text-primary mt-2" type="radio" value="Female" id="genderFemale" />
+                                    <label class="form-check-label text-primary mt-2" for="genderFemale">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <span asp-validation-for="Gender" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -54,6 +83,29 @@
                         <label for="Email" class="text-primary mt-3">Email</label>
                         <input asp-for="Email" class="form-control" type="email"/>
                         <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="Day" class="control-label text-primary mt-3">Day</label>
+                        <select asp-for="Day" class="form-control" asp-items="days"></select>
+                        <span asp-validation-for="Day" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="Month" class="control-label text-primary mt-3">Month</label>
+                        <select asp-for="Month" class="form-control" asp-items="months"></select>
+                        <span asp-validation-for="Month" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label asp-for="Year" class="control-label text-primary mt-3"></label>
+                        <input asp-for="Year" class="form-control" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
                     </div>
                 </div>
             </div>
@@ -73,13 +125,15 @@
                     </div>
                 </div>
             </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="row mt-4">
                 <div class="col-12 d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Create account</button>
                 </div>
             </div>
-
         </form>
+
+        
 
         <div class="text-center hr-with-or mt-5 mb-5">
             <hr class="hr" />
@@ -108,3 +162,7 @@
         <p class="text-center text-muted mt-5" style="font-weight:100; font-size:12px;">By continuing, you confirm and guarantee that you have read, understood, and agreed to our <u>Terms of Use</u> and <u>Privacy Notice</u></p>
     </div>
 </body>
+
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}

@@ -15,7 +15,7 @@ namespace CeylonWellness.Web.Models
         public string MealPreference { get; set; }
         public string MeatType { get; set; }
         public string WeeklyGoal { get; set; }
-
+        public double BMI { get; set; }
         public int NoofMealsperDay { get; set; }
         public string goal {  get; set; }
     }
