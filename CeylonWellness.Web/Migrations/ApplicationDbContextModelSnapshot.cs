@@ -17,7 +17,7 @@ namespace CeylonWellness.Web.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.3")
+                .HasAnnotation("ProductVersion", "8.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -245,6 +245,9 @@ namespace CeylonWellness.Web.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+                    b.Property<double>("BMI")
+                        .HasColumnType("float");
+
                     b.Property<float>("Height")
                         .HasColumnType("real");
 
@@ -252,6 +255,10 @@ namespace CeylonWellness.Web.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MealPreference")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MeatType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -26,5 +26,24 @@ namespace CeylonWellness.Web.Models
 
         [Required]
         public string LastName { get; set; }
+
+        [Required]
+        [Range(1, 31, ErrorMessage = "Please select a valid day.")]
+        public int Day { get; set; }
+
+        [Required]
+        [Range(1, 12, ErrorMessage = "Please select a valid month.")]
+        public int Month { get; set; }
+
+        [Required]
+        [Range(1900, 2100, ErrorMessage = "Please enter a valid year.")]
+        public int Year { get; set; }
+
+        [Display(Name = "Date of Birth")]
+        public DateOnly DateOfBirth => new DateOnly(Year, Month, Day);
+
+        [Required]
+        [Display(Name = "Gender")]
+        public string Gender { get; set; }
     }
 }

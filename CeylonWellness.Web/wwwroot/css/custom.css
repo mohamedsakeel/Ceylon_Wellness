@@ -276,3 +276,41 @@
 .hide{
     display: none;
 }
+
+#bmiBar {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 25px;
+    overflow: visible;
+}
+
+#bmiMarker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+    transform: translateY(20%);
+}
+
+#bmiMarker span {
+    background: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: 1px solid black;
+    font-size: 12px;
+}
+
+.BMI-container {
+    background: #435ebf;
+    padding: 10px;
+    border-radius: 10px;
+    width:100%;
+    max-width: 500px;
+}
+
+.daily-calorie{
+    font-size:42px;
+    font-weight:700;
+    margin-top: 10px;
+    line-height: 32px;
+}

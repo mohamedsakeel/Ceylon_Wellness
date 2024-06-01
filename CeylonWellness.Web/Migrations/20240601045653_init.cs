@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CeylonWellness.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class ff : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,8 @@ namespace CeylonWellness.Web.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DOB = table.Column<DateOnly>(type: "date", nullable: false),
+                    Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -50,6 +52,67 @@ namespace CeylonWellness.Web.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Goals",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GoalName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Goals", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RecipeMeals",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RecipeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MealId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecipeMeals", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Recipes",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CookingMethod = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RecipeDescription = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recipes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "userHealthInfos",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    Height = table.Column<float>(type: "real", nullable: false),
+                    Weight = table.Column<float>(type: "real", nullable: false),
+                    ActivityLevel = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaintaincalAmount = table.Column<int>(type: "int", nullable: false),
+                    TargetWeight = table.Column<float>(type: "real", nullable: false),
+                    MealPreference = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MeatType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BMI = table.Column<double>(type: "float", nullable: false),
+                    NoofMealsperDay = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_userHealthInfos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -158,6 +221,69 @@ namespace CeylonWellness.Web.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "DietPlans",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StartDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    EndDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    PlanType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Duration = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GoalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DietPlans", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_DietPlans_Goals_GoalId",
+                        column: x => x.GoalId,
+                        principalTable: "Goals",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Meals",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MealName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Calorie = table.Column<float>(type: "real", nullable: false),
+                    PlanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Meals", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Meals_DietPlans_PlanId",
+                        column: x => x.PlanId,
+                        principalTable: "DietPlans",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "NutritionQuantities",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Calories = table.Column<int>(type: "int", nullable: false),
+                    MealId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_NutritionQuantities", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_NutritionQuantities_Meals_MealId",
+                        column: x => x.MealId,
+                        principalTable: "Meals",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -196,6 +322,21 @@ namespace CeylonWellness.Web.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DietPlans_GoalId",
+                table: "DietPlans",
+                column: "GoalId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Meals_PlanId",
+                table: "Meals",
+                column: "PlanId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_NutritionQuantities_MealId",
+                table: "NutritionQuantities",
+                column: "MealId");
         }
 
         /// <inheritdoc />
@@ -217,10 +358,31 @@ namespace CeylonWellness.Web.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "NutritionQuantities");
+
+            migrationBuilder.DropTable(
+                name: "RecipeMeals");
+
+            migrationBuilder.DropTable(
+                name: "Recipes");
+
+            migrationBuilder.DropTable(
+                name: "userHealthInfos");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Meals");
+
+            migrationBuilder.DropTable(
+                name: "DietPlans");
+
+            migrationBuilder.DropTable(
+                name: "Goals");
         }
     }
 }

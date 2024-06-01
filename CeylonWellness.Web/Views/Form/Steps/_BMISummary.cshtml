@@ -1,8 +1,82 @@
 ﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
 
 
-<div class="container container-width contload">
+<div class="container container-width Bmiload">
     <div class="d-flex flex-column align-items-center">
+        <h2>Your BMI</h2>
+        <div class="BMI-container">
+            <div class="row">
+                <div class="col-6">
+                    <p class="text-white">Body Mass Index (BMI)</p>
+                </div>
+                <div class="col-6">
+                    <div class="text-white d-flex justify-content-end">Healthy - 21.5</div>
+                </div>
+                
+            </div>
+            <div id="bmiBar" style="position: relative; height: 10px; width: 100%; background: linear-gradient(to right, green, yellow, red);">
+                <div id="bmiMarker" style="position: absolute; top: -10px; height: 20px; width: 20px; text-align: center;">
+                    <span style="position: absolute; bottom: 100%; white-space: nowrap;">You -<i id="BMIvalue"></i></span>
+                    <div style="width: 20px; height: 20px; background: white; border-radius: 50%; border: 2px solid black;"></div>
+                </div>
+            </div>
+            <div class="row mt-2 mx-1">
+                <div class="col-4">
+                    <p class="text-white">Healthy</p>
+                </div>
+                <div class="col-4">
+                    <p class="text-white d-flex justify-content-center">Overweight</p>
+                </div>
+                <div class="col-4">
+                    <p class="text-white d-flex justify-content-end">Obese</p>
+                </div>
+            </div>
+            
+        </div>
 
+        <p class="notice mt-3">
+            <strong>Note: </strong>Below shows your BMI according to the healthy weight range</span>
+        </p>
+        <div class="row" style="min-width:500px;">
+            <div class="col-1 d-flex text-primary mb-0" style="width:100%;">
+                <p class="mb-1" style="font-weight:500;">Activity Level</p>
+            </div>
+            <div class="col-1 d-flex text-primary mb-2" style="width:100%;">
+                <h5 style="font-weight:700;"><i><img width="28px" src="/Assets/signal 1.svg" /></i>&nbsp; &nbsp;<span id="actlevel"></span></h5>
+            </div>
+            <div class="col-1 d-flex text-primary mb-0" style="width:100%;">
+                <p class="mb-1" style="font-weight:500;">Exercise</p>
+            </div>
+            <div class="col-1 d-flex text-primary" style="width:100%;">
+                <h5 style="font-weight:700;"><i><img width="28px" src="/Assets/signal 1.svg" /></i>&nbsp; &nbsp;<span id="actlevelsub"></span></h5>
+            </div>
+        </div>
+
+        <h3 class="text-primary">Your daily calories</h3>
+        <p class="text-center text-primary mt-2">The amount of calories you must intake for you to <br />gain weight based on your activity level and BMR</p>
+
+        <span id="dailycalorie" class="daily-calorie text-primary">2100</span>
+        <p class="text-primary cal-sub">calories/day</p>
+        
+        <p class="notice mt-3">
+            <strong>Note: </strong>BMR stands for Basal Metabolic Rate. It's the amount of energy your body needs to maintain basic functions while at rest. BMR helps estimate how many calories you burn at rest.<br /><br />The above rate is calculated using Age, height, weight and activity level.</span>
+        </p>
+
+        <a class="cl btn btn-primary mt-5 set-bottom" type="button" asp-controller="Account" asp-action="Register">Continue</a>
     </div>
 </div>
+
+
+<script>
+
+    $(document).ready(function () {
+        BMIGraph(); // Initial call when the document is ready
+        actleve();
+
+        // Assuming you load the partial view via AJAX, you need to re-apply the function
+        $('#Bmiload').on('load', function () {
+            BMIGraph();
+            actleve();
+        });
+    });
+</script>
