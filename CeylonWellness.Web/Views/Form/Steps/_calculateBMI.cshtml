@@ -1,0 +1,22 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 70vh;">
+    <div class="card p-4 shadow-lg rounded-5" style="width: 800px;">
+        <div class="card-body">
+            <h3 class="card-title">Let's calculate your BMI</h3>
+            <div class="input-group mb-5">
+                <input asp-for="Weight" type="number" id="Weight" class="form-control" />
+                <span class="input-group-text">Kg</span>
+            </div>
+            <h3 class="card-title">What is your Age</h3>
+            <div class="input-group mb-5">
+                <input asp-for="Age" type="number" id="Age" class="form-control" />
+                <span class="input-group-text">Years</span>
+            </div>
+            <button type="button" onclick="loadNextStep('Steps/_SelectGender')" class="btn btn-primary btn-block">Continue</button>
+        </div>
+    </div>
+</div>
+
+
