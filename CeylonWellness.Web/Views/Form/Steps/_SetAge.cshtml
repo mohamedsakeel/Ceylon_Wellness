@@ -4,10 +4,16 @@
 
 <div class="container-sm container-width">
     <div class="d-flex flex-column align-items-center">
-        <h2 class="text-primary mt-3 mb-5">What is your Age</h2>
+        <h2 class="text-primary mt-3 mb-5">What is your Age?</h2>
         <input asp-for="Age" type="number" id="Age" class="form-control mt-4 big-input" required />
 
-        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="ageVerification('Steps/_heightWeight')">Continue</button>
+        @* <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="ageVerification('Steps/_heightWeight')">Continue</button> *@
 
+    </div>
+    <div class="d-flex justify-content-center fixed-bottom mb-12">
+        <div class="d-flex">
+            <button type="button" onclick="loadNextStep('Steps/_SelectGender')" class="btn btn-secondary btn-lg mx-2">Previous</button>
+            <button type="button" onclick="loadNextStep('Steps/_heightWeight')" class="btn btn-primary btn-lg mx-2">Continue</button>
+        </div>
     </div>
 </div>
