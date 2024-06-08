@@ -18,5 +18,8 @@ namespace CeylonWellness.Web.Models
         public double BMI { get; set; }
         public int NoofMealsperDay { get; set; }
         public string goal {  get; set; }
+        public double Neck { get; set; }
+        public double Waist { get; set; }
+        public double Hip { get; set; }
     }
 }

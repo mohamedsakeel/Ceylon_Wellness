@@ -29,7 +29,13 @@ document.addEventListener('DOMContentLoaded', function () {
         var partialName = $(e.target).data('next-step');
         loadNextStep(partialName);
     });
+    const selectedGender = sessionStorage.getItem('selectedGender');
+    if (selectedGender === 'Female') {
+        document.getElementById('hip-label').style.display = 'block';
+        document.getElementById('hip').style.display = 'block';
+    }
 });
+
 function loadNextStep(partialName) {
     // Serialize form data from the current step
     var data = $('#multistepform').serialize();
@@ -45,6 +51,11 @@ function loadNextStep(partialName) {
                 $("#form-container").html(partialHtml);
                 // Push the new state into the history stack
                 window.history.pushState({ partialName: partialName }, null, `?step=${partialName}`);
+                const selectedGender = sessionStorage.getItem('selectedGender');
+                if (selectedGender === 'Female') {
+                    document.getElementById('hip-label').style.display = 'block';
+                    document.getElementById('hip').style.display = 'block';
+                }
             });
         },
         error: function () {
@@ -79,10 +90,12 @@ function ageVerification(partialName) {
     loadNextStep(partialName);
 }
 
-function setGender(value) {
-    document.getElementById("gender").value = value;
-    var partialName = "Steps/_SetAge";
-    loadNextStep(partialName);
+function setGender(gender) {
+    document.getElementById('gender').value = gender;
+    // Save the gender selection in localStorage or sessionStorage
+    sessionStorage.setItem('selectedGender', gender);
+    // Redirect to the next step
+    loadNextStep('Steps/_setAge'); // Ensure this step is correct
 }
 
 function WHVerification(partialName) {
@@ -92,9 +105,9 @@ function WHVerification(partialName) {
     const weight = weightInput.value;
     const height = heightInput.value;
 
-    let bmis = calculateBMI(weight, height);
+    let bmi = calculateBMI(weight, height);
 
-    document.getElementById('bmi').value = bmis;
+    document.getElementById('bmi').value = bmi;
 
     if (weight.trim() === "" || weight <= 0) {
         // Create a Bootstrap tooltip for weight input
@@ -136,7 +149,7 @@ function WHVerification(partialName) {
     loadNextStep(partialName);
 }
 
-//BMI Calculator
+// BMI Calculator
 function calculateBMI(weight, height) {
     if (height <= 0 || weight <= 0) {
         return "Height and weight must be greater than zero";
@@ -144,234 +157,4 @@ function calculateBMI(weight, height) {
     let heightInMeters = height / 100;
     let bmi = weight / (heightInMeters * heightInMeters);
     return bmi.toFixed(2);
-}
-
-//target weight verification goal page
-function TargetWeightVerification(partialName) {
-    const targetWeightInput = document.getElementById('targetweight');
-    const targetWeightValue = targetWeightInput.value;
-
-    const weight = document.getElementById('weightss').value;
-    const goalinput = document.getElementById('goal');
-    const goal = document.getElementById('goal').value;
-
-    if (goal == "") {
-        let goalTooltip = new mdb.Tooltip(goalinput, {
-            title: "Please select a goal",
-            placement: 'bottom'
-        });
-        goalTooltip.show();
-
-        // Optionally clear height input and hide tooltip after a delay
-        setTimeout(() => {
-            //targetWeightInput.value = '';
-            heightTooltip.hide();
-        }, 2000); // Hide tooltip after 2 seconds
-        return false;
-    }
-    if (goal == "Gain Weight") {
-        // Validate target weight input
-        if (targetWeightValue < weight) {
-            let heightTooltip = new mdb.Tooltip(targetWeightInput, {
-                title: "Please enter a Target weight more than your weight",
-                placement: 'bottom'
-            });
-            heightTooltip.show();
-
-            // Optionally clear height input and hide tooltip after a delay
-            setTimeout(() => {
-                //targetWeightInput.value = '';
-                heightTooltip.hide();
-            }, 2000); // Hide tooltip after 2 seconds
-            return false;
-        }
-    }
-    else if (goal == "Lose Weight") { 
-        // Validate target weight input
-        if (targetWeightValue > weight) {
-            let heightTooltip = new mdb.Tooltip(targetWeightInput, {
-                title: "Target weight cannot be more than your weight",
-                placement: 'bottom'
-            });
-            heightTooltip.show();
-
-            // Optionally clear height input and hide tooltip after a delay
-            setTimeout(() => {
-                //targetWeightInput.value = '';
-                heightTooltip.hide();
-            }, 2000); // Hide tooltip after 2 seconds
-            return false;
-        }
-    }
-
-    if (targetWeightValue.trim() === "" || targetWeightValue <= 0) {
-        let heightTooltip = new mdb.Tooltip(targetWeightInput, {
-            title: "Please enter valid target weight",
-            placement: 'bottom'
-        });
-        heightTooltip.show();
-
-        // Optionally clear height input and hide tooltip after a delay
-        setTimeout(() => {
-            //targetWeightInput.value = '';
-            heightTooltip.hide();
-        }, 2000); // Hide tooltip after 2 seconds
-        return false;
-    }
-
-    // Continue with form submission or next step
-    // For example:
-    // window.location.href = url;
-
-    loadNextStep(partialName);
-}
-
-//goal update
-function selectGoal(button) {
-    const goalValue = button.getAttribute('data-goal');
-    document.getElementById('goal').value = goalValue;
-    document.getElementById('goals').value = goalValue;
-
-    // Remove 'selected' class from all buttons
-    document.querySelectorAll('.goal').forEach(btn => btn.classList.remove('btn-selected'));
-
-    // Add 'selected' class to the clicked button
-    button.classList.add('btn-selected');
-    if (goalValue == "Maintain Weight") {
-        var div = document.getElementById('targetweight');
-        var divv = document.getElementById('hidethis');
-        div.classList.add('hide');
-        divv.classList.add('hide');
-
-        const weight = document.getElementById('weightss').value;
-        document.getElementById('targetweight').value = weight;
-
-    }
-    else {
-        var div = document.getElementById('targetweight');
-        var divv = document.getElementById('hidethis');
-        div.classList.remove('hide');
-        divv.classList.remove('hide');
-    }
-    
-}
-
-function selectBarriers(button) {
-    // Toggle 'btn-selected' class for the clicked button
-    button.classList.toggle('btn-selected');
-}
-
-function selectDiatpref(button) {
-    const goalValue = button.getAttribute('data-pref');
-    document.getElementById('Diatpref').value = goalValue;
-
-    // Remove 'selected' class from all buttons
-    document.querySelectorAll('.dietpref').forEach(btn => btn.classList.remove('btn-selected'));
-
-    // Add 'selected' class to the clicked button
-    button.classList.add('btn-selected');
-}
-
-function selectActivity(button) {
-    const ActivityLevel = button.getAttribute('data-actlevel');
-    document.getElementById('ActivityLevel').value = ActivityLevel;
-    document.getElementById('activelevel').value = ActivityLevel;
-
-    // Remove 'selected' class from all buttons
-    document.querySelectorAll('.selected').forEach(btn => btn.classList.remove('btn-selected'));
-
-    // Add 'selected' class to the clicked button
-    button.classList.add('btn-selected');
-
-}
-function selectWeeklyGoal(button) {
-    const ActivityLevel = button.getAttribute('data-weekgoal');
-    document.getElementById('WeeklyGoal').value = ActivityLevel;
-
-    // Remove 'selected' class from all buttons
-    document.querySelectorAll('.selected').forEach(btn => btn.classList.remove('btn-selected'));
-
-    // Add 'selected' class to the clicked button
-    button.classList.add('btn-selected');
-
-    var amount;
-
-    document.getElementById('weekgoalname').innerText = ActivityLevel;
-
-    if (document.getElementById('goals').value == "Lose Weight") {
-        document.getElementById('lessmore').innerText = "Less";
-    } else {
-        document.getElementById('lessmore').innerText = "more";
-    }
-
-    if (ActivityLevel == "Relaxed") {
-        document.getElementById('weekgoalamnt').innerText = 250;
-        document.getElementById('visibles').classList.add('hide');
-    }
-    else if (ActivityLevel == "Normal") {
-        document.getElementById('weekgoalamnt').innerText = 500;
-        document.getElementById('visibles').classList.add('hide');
-    }
-    else if (ActivityLevel == "Strict") {
-        document.getElementById('weekgoalamnt').innerText = 1000;
-        document.getElementById('visibles').classList.remove('hide');
-    }
-    
-
-    document.getElementById('visible').classList.remove('hide');
-}
-
-function updateGoal() {
-    var goal = document.getElementById('goals').value;
-    document.getElementById('goal-text').innerText = goal;
-    document.getElementById('goal-texts').innerText = goal;
-}
-
-function selectNoOfMeal(button) {
-    const Meals = button.getAttribute('data-noofmeal');
-    document.getElementById('mealamount').value = Meals;
-
-    // Remove 'selected' class from all buttons
-    document.querySelectorAll('.selected').forEach(btn => btn.classList.remove('btn-selected'));
-
-    // Add 'selected' class to the clicked button
-    button.classList.add('btn-selected');
-
-}
-
-
-
-//BMI Display Graph
-function BMIGraph() {
-    var bmiInput = document.getElementById("bmi");
-    var bmi = parseFloat(bmiInput.value);
-    document.getElementById('BMIvalue').innerText = bmi;
-    var marker = document.getElementById("bmiMarker");
-    var bar = document.getElementById("bmiBar");
-    var barWidth = bar.offsetWidth;
-    var position = (bmi / 40) * barWidth; // Assuming 40 is the maximum BMI value on the scale
-    marker.style.left = position + "px";
-}
-
-function actleve() {
-    var actlevel = document.getElementById("activelevel").value;
-    document.getElementById('actlevel').innerText = actlevel;
-
-    if (actlevel == "Sedentary") {
-        document.getElementById('actlevelsub').innerText = "Little to no exercise";
-    }
-    if (actlevel == "Lighly active") {
-        document.getElementById('actlevelsub').innerText = "Light exercise / sports 1-2 days per week";
-    }
-    if (actlevel == "Moderately active") {
-        document.getElementById('actlevelsub').innerText = "Moderate exercise / sports 3-4 days per week";
-    }
-    if (actlevel == "Very active") {
-        document.getElementById('actlevelsub').innerText = "Hard exercise / sports 6-7 days per week";
-    }
-    if (actlevel == "Highly active") {
-        document.getElementById('actlevelsub').innerText = "Hard daily exercise / sports & physical job";
-    }
-
-
 }
