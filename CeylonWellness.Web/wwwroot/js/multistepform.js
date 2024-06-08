@@ -148,6 +148,54 @@ function WHVerification(partialName) {
     // If both weight and height are valid, proceed to the next step
     loadNextStep(partialName);
 }
+function NWHVerification(partialName) {
+    const neckInput = document.getElementById("neck");
+    const waistInput = document.getElementById("waist");
+    const hipInput = document.getElementById("hip");
+
+    const neck = neckInput.value;
+    const waist = waistInput.value;
+    const hip = hipInput ? hipInput.value : null;
+
+    const selectedGender = sessionStorage.getItem('selectedGender');
+
+    let isValid = true;
+
+    // Validate Neck
+    if (neck.trim() === "" || neck <= 0) {
+        showErrorTooltip(neckInput, "Please enter a valid neck measurement");
+        isValid = false;
+    }
+
+    // Validate Waist
+    if (waist.trim() === "" || waist <= 0) {
+        showErrorTooltip(waistInput, "Please enter a valid waist measurement");
+        isValid = false;
+    }
+
+
+    // Validate Hip if gender is female
+    if (selectedGender === 'Female' && (hip.trim() === "" || hip <= 0)) {
+        showErrorTooltip(hipInput, "Please enter a valid hip measurement");
+        isValid = false;
+    }
+
+    if (isValid) {
+        loadNextStep(partialName);
+    }
+}
+
+function showErrorTooltip(inputElement, message) {
+    let tooltip = new mdb.Tooltip(inputElement, {
+        title: message,
+        placement: 'bottom'
+    });
+    tooltip.show();
+
+    setTimeout(() => {
+        tooltip.hide();
+    }, 2000);
+}
 
 // BMI Calculator
 function calculateBMI(weight, height) {
