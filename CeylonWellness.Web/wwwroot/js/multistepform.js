@@ -119,56 +119,94 @@ function setGender(gender) {
     loadNextStep('Steps/_setAge'); // Ensure this step is correct
 }
 
+//function WHVerification(partialName) {
+//    const weightInput = document.getElementById("weight");
+//    const heightInput = document.getElementById("height");
+
+//    const weight = weightInput.value;
+//    const height = heightInput.value;
+
+//    let bmi = calculateBMI(weight, height);
+
+//    document.getElementById('bmi').value = bmi;
+
+//    if (weight.trim() === "" || weight <= 0) {
+//        // Create a Bootstrap tooltip for weight input
+//        let weightTooltip = new mdb.Tooltip(weightInput, {
+//            title: "Please enter a valid weight",
+//            placement: 'bottom'
+//        });
+//        weightTooltip.show();
+
+//        // Optionally clear weight input and hide tooltip after a delay
+//        setTimeout(() => {
+//            //weightInput.value = '';
+//            weightTooltip.hide();
+//        }, 2000); // Hide tooltip after 2 seconds
+
+//        return; // Don't continue if weight is invalid
+//    }
+
+//    if (height.trim() === "" || height <= 0) {
+//        // Create a Bootstrap tooltip for height input
+//        let heightTooltip = new mdb.Tooltip(heightInput, {
+//            title: "Please enter a valid height",
+//            placement: 'bottom'
+//        });
+//        heightTooltip.show();
+
+//        // Optionally clear height input and hide tooltip after a delay
+//        setTimeout(() => {
+//            //heightInput.value = '';
+//            heightTooltip.hide();
+//        }, 2000); // Hide tooltip after 2 seconds
+
+//        return; // Don't continue if height is invalid
+//    }
+
+//    document.getElementById('weightss').value = weight;
+
+//    // If both weight and height are valid, proceed to the next step
+//    loadNextStep(partialName);
+//}
 function WHVerification(partialName) {
     const weightInput = document.getElementById("weight");
     const heightInput = document.getElementById("height");
 
-    const weight = weightInput.value;
-    const height = heightInput.value;
+    const weight = parseFloat(weightInput.value);
+    const height = parseFloat(heightInput.value);
 
-    let bmi = calculateBMI(weight, height);
-
-    document.getElementById('bmi').value = bmi;
-
-    if (weight.trim() === "" || weight <= 0) {
-        // Create a Bootstrap tooltip for weight input
-        let weightTooltip = new mdb.Tooltip(weightInput, {
-            title: "Please enter a valid weight",
-            placement: 'bottom'
-        });
-        weightTooltip.show();
-
-        // Optionally clear weight input and hide tooltip after a delay
-        setTimeout(() => {
-            //weightInput.value = '';
-            weightTooltip.hide();
-        }, 2000); // Hide tooltip after 2 seconds
-
+    if (isNaN(weight) || weight < 15 || weight > 300) {
+        showErrorTooltip(weightInput, "Weight should be between 15 and 300 kg");
         return; // Don't continue if weight is invalid
     }
 
-    if (height.trim() === "" || height <= 0) {
-        // Create a Bootstrap tooltip for height input
-        let heightTooltip = new mdb.Tooltip(heightInput, {
-            title: "Please enter a valid height",
-            placement: 'bottom'
-        });
-        heightTooltip.show();
-
-        // Optionally clear height input and hide tooltip after a delay
-        setTimeout(() => {
-            //heightInput.value = '';
-            heightTooltip.hide();
-        }, 2000); // Hide tooltip after 2 seconds
-
+    if (isNaN(height) || height < 100 || height > 300) {
+        showErrorTooltip(heightInput, "Height should be between 100 and 300 cm");
         return; // Don't continue if height is invalid
     }
 
-    document.getElementById('weightss').value = weight;
+    // If both weight and height are valid, calculate BMI
+    const bmi = calculateBMI(weight, height);
+    document.getElementById('bmi').value = bmi;
 
-    // If both weight and height are valid, proceed to the next step
+    // Proceed to the next step
     loadNextStep(partialName);
 }
+
+function showErrorTooltip(element, message) {
+    let tooltip = new mdb.Tooltip(element, {
+        title: message,
+        placement: 'bottom'
+    });
+    tooltip.show();
+
+    // Optionally clear input and hide tooltip after a delay
+    setTimeout(() => {
+        tooltip.hide();
+    }, 2000); // Hide tooltip after 2 seconds
+}
+
 //function NWHVerification(partialName) {
 //    const neckInput = document.getElementById("neck");
 //    const waistInput = document.getElementById("waist");
