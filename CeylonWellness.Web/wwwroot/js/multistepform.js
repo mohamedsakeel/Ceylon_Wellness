@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     // Initial load
-    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_SelectBarrier';
+    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_SelectAge';
     loadStep(initialStep, false); // Do not push state for the initial load
 
     document.getElementById('form-container').addEventListener('submit', function (e) {
@@ -491,7 +491,7 @@ function selectGoal(button) {
     }
 
     function updateGoal() {
-        var goal = document.getElementByClass('goal').value;
+        var goal = document.getElementById('goals').value;
         document.getElementById('goal-text').innerText = goal;
         document.getElementById('goal-texts').innerText = goal;
     }

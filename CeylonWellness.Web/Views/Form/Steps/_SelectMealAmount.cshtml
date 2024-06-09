@@ -33,3 +33,13 @@
         @* <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_BMISummary')">Continue</button> *@
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        updateGoal(); // Initial call when the document is ready
+
+        // Assuming you load the partial view via AJAX, you need to re-apply the function
+        $('#contload').on('load', function () {
+            updateGoal();
+        });
+    });
+</script>
