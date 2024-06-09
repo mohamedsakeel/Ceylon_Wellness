@@ -1,24 +1,5 @@
 ﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
 
-
-@* <div class="container container-width">
-    <div class="d-flex flex-column align-items-center">
-        <h2 class="text-primary mt-3 mb-5">Enter Body Measurements</h2>
-        <label for="height" class="form-label text-primary">Neck (Cm)</label>
-        <input asp-for="Height" type="number" id="height" class="form-control big-input mb-4" required />
-
-        <label for="weight" class="form-label text-primary">Waist (Cm)</label>
-        <input asp-for="Weight" type="number" id="weight" class="form-control big-input" required />
-        
-         <label for="weight" class="form-label text-primary">Hip (cm)</label>
-         <input asp-for="Weight" type="number" id="weight" class="form-control big-input" required />
-       
-        <p class="notice mt-5"><strong>Note: </strong>Capturing your weight and height allows us to calculate your Body Mass Index (BMI). BMI is an important indicator used to assess whether you are underweight, normal weight, overweight, or obese, which helps in understanding your overall health status.</p>
-        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="WHVerification('Steps/_SelectGoal')">Continue</button>
-
-    </div>
-</div> *@
-
 <div class="container container-width">
     <div class="d-flex flex-column align-items-center">
         <h2 class="text-primary mt-3 mb-5">Enter Body Measurements</h2>
@@ -38,8 +19,3 @@
         <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="NWHVerification('Steps/_SelectGoal')">Continue</button>
     </div>
 </div>
-
-@* @section Scripts {
-    <script src="~/js/multistepform.js"></script>
-}
- *@

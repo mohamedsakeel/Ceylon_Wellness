@@ -4,7 +4,7 @@
 
 <div class="container container-width">
     <div class="d-flex flex-column align-items-center">
-        <h2 class="text-primary mt-3 mb-5">What do you want to achieve</h2>
+        <h2 class="text-primary mt-3 mb-5">What do you want to achieve?</h2>
         <input type="hidden" asp-for="goal" id="goal" />
 
         <a class="btn btn-outline-primary gender-btn selected goal" id="gain" data-goal="Gain Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
@@ -26,12 +26,22 @@
         </a>
 
         <h2 id="hidethis" class="text-primary my-5">What is your target weight?</h2>
-        <input type="number" id="targetweight" class="form-control big-input" />
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="input-group mb-8">
+                    <input type="number" id="targetweight" class="form-control big-input">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Kg</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="TargetWeightVerification('Steps/_SelectBarrier')">Continue</button>
+
+
+        <button class="cl btn btn-primary mb-4 set-bottom" type="button" onclick="TargetWeightVerification('Steps/_SelectBarrier')">Continue</button>
     </div>
 </div>
-
 
 
 
