@@ -21,5 +21,8 @@ namespace CeylonWellness.Web.Models
         public double Neck { get; set; }
         public double Waist { get; set; }
         public double Hip { get; set; }
+
+        public string Dairy { get; set; }
+        public string Eggs { get; set; }
     }
 }

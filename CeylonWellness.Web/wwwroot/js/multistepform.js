@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Initial load
-    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_MeatPref';
+    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_DairyProductsEggs';
     loadStep(initialStep, false); // Do not push state for the initial load
 
     // Bind the loadNextStep function to form submissions or other triggers
@@ -432,3 +432,32 @@ function selectGoal(button) {
 
     }
 
+function setDairy(value) {
+    document.getElementById('dairy').value = value;
+    document.getElementById('dairy-yes-btn').classList.remove('btn-primary');
+    document.getElementById('dairy-no-btn').classList.remove('btn-primary');
+    document.getElementById('dairy-yes-btn').classList.add('btn-outline-primary');
+    document.getElementById('dairy-no-btn').classList.add('btn-outline-primary');
+    if (value === 'Yes') {
+        document.getElementById('dairy-yes-btn').classList.add('btn-primary');
+        document.getElementById('dairy-yes-btn').classList.remove('btn-outline-primary');
+    } else {
+        document.getElementById('dairy-no-btn').classList.add('btn-primary');
+        document.getElementById('dairy-no-btn').classList.remove('btn-outline-primary');
+    }
+}
+
+function setEggs(value) {
+    document.getElementById('eggs').value = value;
+    document.getElementById('eggs-yes-btn').classList.remove('btn-primary');
+    document.getElementById('eggs-no-btn').classList.remove('btn-primary');
+    document.getElementById('eggs-yes-btn').classList.add('btn-outline-primary');
+    document.getElementById('eggs-no-btn').classList.add('btn-outline-primary');
+    if (value === 'Yes') {
+        document.getElementById('eggs-yes-btn').classList.add('btn-primary');
+        document.getElementById('eggs-yes-btn').classList.remove('btn-outline-primary');
+    } else {
+        document.getElementById('eggs-no-btn').classList.add('btn-primary');
+        document.getElementById('eggs-no-btn').classList.remove('btn-outline-primary');
+    }
+}
