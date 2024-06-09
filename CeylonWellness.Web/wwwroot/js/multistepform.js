@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
     // Function to load a step
     function loadStep(partialName, pushState = true) {
         $.get('/Form/LoadPartial?partialName=' + partialName, function (partialHtml) {
@@ -18,12 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
             loadStep('Steps/_SelectAge', false); // Default to the first step if no state is available
         }
     });
+    
 
     // Initial load
-    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_DairyProductsEggs';
+    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_SelectDiatpref';
     loadStep(initialStep, false); // Do not push state for the initial load
 
-    // Bind the loadNextStep function to form submissions or other triggers
     document.getElementById('form-container').addEventListener('submit', function (e) {
         e.preventDefault();
         var partialName = $(e.target).data('next-step');
@@ -35,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('hip').style.display = 'block';
     }
 });
-
 function loadNextStep(partialName) {
     // Serialize form data from the current step
     var data = $('#multistepform').serialize();
@@ -56,6 +56,7 @@ function loadNextStep(partialName) {
                     document.getElementById('hip-label').style.display = 'block';
                     document.getElementById('hip').style.display = 'block';
                 }
+                
             });
         },
         error: function () {
@@ -460,4 +461,32 @@ function setEggs(value) {
         document.getElementById('eggs-no-btn').classList.add('btn-primary');
         document.getElementById('eggs-no-btn').classList.remove('btn-outline-primary');
     }
+}
+
+function handleNextStep() {
+    // Check if a dietary preference is selected
+    const selectedDiat = document.getElementById('Diatpref').value;
+    if (selectedDiat) {
+        // Depending on the selected preference, load the appropriate next step
+        if (selectedDiat === 'Vegetarian') {
+            loadNextStep('Steps/_DairyProductsEggs'); // Load DairyProductsEggs for vegetarians
+        } else {
+            loadNextStep('Steps/_MeatPref'); // Load MeatPref for non-vegetarians
+        }
+    } else {
+        // Inform the user to select a preference before proceeding
+        alert('Please select a dietary preference before continuing.');
+    }
+}
+
+// Function to handle selection of dietary preference
+function selectDiatpref(button) {
+    const prefValue = button.getAttribute('data-pref');
+    document.getElementById('Diatpref').value = prefValue;
+
+    // Remove 'selected' class from all buttons
+    document.querySelectorAll('.dietpref').forEach(btn => btn.classList.remove('btn-selected'));
+
+    // Add 'selected' class to the clicked button
+    button.classList.add('btn-selected');
 }
