@@ -1,0 +1,37 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+
+
+<div class="container container-width">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3 mb-3">Do you consume Dairy Products?</h2>
+        <input type="hidden" asp-for="goal" id="goal" />
+
+        <a class="btn btn-outline-primary gender-btn selected goal" id="gain" data-goal="Gain Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
+            <span class="goal-title">Yes<br /><span class="goal-subtitle">I consume dairy products</span></span>
+        </a>
+
+        <a class="btn btn-outline-primary gender-btn selected goal" id="lose" data-goal="Lose Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
+            <span class="goal-title">No<br /><span class="goal-subtitle">I do not consume dairy products</span></span>
+        </a>
+
+        <h2 class="text-primary mt-3 mb-3">Do you consume Eggs?</h2>
+        <input type="hidden" asp-for="goal" id="goal" />
+
+        <a class="btn btn-outline-primary gender-btn selected goal" id="gain" data-goal="Gain Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
+            <span class="goal-title">Yes<br /><span class="goal-subtitle">I consume eggs</span></span>
+        </a>
+
+        <a class="btn btn-outline-primary gender-btn selected goal" id="lose" data-goal="Lose Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
+            <span class="goal-title">No<br /><span class="goal-subtitle">I do not consume eggs</span></span>    
+        </a>
+
+
+
+        <button class="cl btn btn-primary mb-4 set-bottom" type="button" onclick="TargetWeightVerification('Steps/_ActivityLevel')">Continue</button>
+    </div>
+</div>
+
+
+
+

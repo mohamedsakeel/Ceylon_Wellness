@@ -2,16 +2,16 @@
 
 <div class="container container-width">
     <div class="d-flex flex-column align-items-center">
-        <h2 class="text-primary mt-3 mb-5">Enter Body Measurements</h2>
+        <h2 class="text-primary mt-3 mb-5">Enter Body Fat Measurements</h2>
         <div id="measurements">
             <label for="neck" class="form-label text-primary">Neck (Cm)</label>
-            <input asp-for="Neck" type="number" id="neck" class="form-control big-input mb-4" required />
+            <input asp-for="Neck" type="text" id="neck" class="form-control big-input mb-4" required />
 
             <label for="waist" class="form-label text-primary">Waist (Cm)</label>
-            <input asp-for="Waist" type="number" id="waist" class="form-control big-input mb-4" required />
+            <input asp-for="Waist" type="text" id="waist" class="form-control big-input mb-4" required />
 
-            <<label for="hip" class="form-label text-primary" id="hip-label" style="display:none;">Hip (Cm)</label>
-            <input asp-for="Hip" type="number" id="hip" class="form-control big-input mb-4" style="display:none;" required />
+            <label for="hip" class="form-label text-primary" id="hip-label" style="display:none;">Hip (Cm)</label>
+            <input asp-for="Hip" type="text" id="hip" class="form-control big-input mb-4" style="display:none;" required />
 
         </div>
         

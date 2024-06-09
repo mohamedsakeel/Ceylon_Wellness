@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Initial load
-    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_SelectDiatpref';
+    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_MeatPref';
     loadStep(initialStep, false); // Do not push state for the initial load
 
     // Bind the loadNextStep function to form submissions or other triggers
