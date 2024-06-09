@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     // Initial load
-    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_SelectDiatpref';
+    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_SelectAge';
     loadStep(initialStep, false); // Do not push state for the initial load
 
     document.getElementById('form-container').addEventListener('submit', function (e) {
@@ -66,31 +66,51 @@ function loadNextStep(partialName) {
     });
 }
 
+//function ageVerification(partialName) {
+//    const ageInput = document.getElementById("Age");
+//    const age = ageInput.value;
+
+//    // Age Validation
+//    if (age.trim() === "" || age <= 0) {
+//        // Create a Bootstrap tooltip
+//        let tooltip = new mdb.Tooltip(ageInput, {
+//            title: "Please enter a valid age",
+//            placement: 'bottom'
+//        });
+//        tooltip.show();
+
+//        // Optionally clear input and hide tooltip after a delay
+//        setTimeout(() => {
+//            ageInput.value = '';
+//            tooltip.hide();
+//        }, 2000); // Hide tooltip after 2 seconds
+
+//        return; // Don't continue if invalid
+//    }
+//    loadNextStep(partialName);
+//}
 function ageVerification(partialName) {
     const ageInput = document.getElementById("Age");
-    const age = ageInput.value;
+    const age = parseInt(ageInput.value);
 
     // Age Validation
-    if (age.trim() === "" || age <= 0) {
+    if (isNaN(age) || age < 18 || age > 50) {
         // Create a Bootstrap tooltip
         let tooltip = new mdb.Tooltip(ageInput, {
-            title: "Please enter a valid age",
+            title: "Age must be between 18 and 50",
             placement: 'bottom'
         });
         tooltip.show();
 
         // Optionally clear input and hide tooltip after a delay
         setTimeout(() => {
-            ageInput.value = '';
             tooltip.hide();
         }, 2000); // Hide tooltip after 2 seconds
 
         return; // Don't continue if invalid
     }
-
     loadNextStep(partialName);
 }
-
 function setGender(gender) {
     document.getElementById('gender').value = gender;
     // Save the gender selection in localStorage or sessionStorage
@@ -463,6 +483,19 @@ function setEggs(value) {
     }
 }
 
+
+
+// Function to handle selection of dietary preference
+function selectDiatpref(button) {
+    const prefValue = button.getAttribute('data-pref');
+    document.getElementById('Diatpref').value = prefValue;
+
+    // Remove 'selected' class from all buttons
+    document.querySelectorAll('.dietpref').forEach(btn => btn.classList.remove('btn-selected'));
+
+    // Add 'selected' class to the clicked button
+    button.classList.add('btn-selected');
+}
 function handleNextStep() {
     // Check if a dietary preference is selected
     const selectedDiat = document.getElementById('Diatpref').value;
@@ -477,16 +510,4 @@ function handleNextStep() {
         // Inform the user to select a preference before proceeding
         alert('Please select a dietary preference before continuing.');
     }
-}
-
-// Function to handle selection of dietary preference
-function selectDiatpref(button) {
-    const prefValue = button.getAttribute('data-pref');
-    document.getElementById('Diatpref').value = prefValue;
-
-    // Remove 'selected' class from all buttons
-    document.querySelectorAll('.dietpref').forEach(btn => btn.classList.remove('btn-selected'));
-
-    // Add 'selected' class to the clicked button
-    button.classList.add('btn-selected');
 }
