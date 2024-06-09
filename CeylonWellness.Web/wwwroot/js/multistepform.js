@@ -491,7 +491,7 @@ function selectGoal(button) {
     }
 
     function updateGoal() {
-        var goal = document.getElementById('goals').value;
+        var goal = document.getElementByClass('goal').value;
         document.getElementById('goal-text').innerText = goal;
         document.getElementById('goal-texts').innerText = goal;
     }
