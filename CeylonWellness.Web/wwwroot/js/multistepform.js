@@ -169,35 +169,76 @@ function WHVerification(partialName) {
     // If both weight and height are valid, proceed to the next step
     loadNextStep(partialName);
 }
+//function NWHVerification(partialName) {
+//    const neckInput = document.getElementById("neck");
+//    const waistInput = document.getElementById("waist");
+//    const hipInput = document.getElementById("hip");
+
+//    const neck = neckInput.value;
+//    const waist = waistInput.value;
+//    const hip = hipInput ? hipInput.value : null;
+
+//    const selectedGender = sessionStorage.getItem('selectedGender');
+
+//    let isValid = true;
+
+//    // Validate Neck
+//    if (neck.trim() === "" || neck <= 0) {
+//        showErrorTooltip(neckInput, "Please enter a valid neck measurement");
+//        isValid = false;
+//    }
+
+//    // Validate Waist
+//    if (waist.trim() === "" || waist <= 0) {
+//        showErrorTooltip(waistInput, "Please enter a valid waist measurement");
+//        isValid = false;
+//    }
+
+
+//    // Validate Hip if gender is female
+//    if (selectedGender === 'Female' && (hip.trim() === "" || hip <= 0)) {
+//        showErrorTooltip(hipInput, "Please enter a valid hip measurement");
+//        isValid = false;
+//    }
+
+//    if (isValid) {
+//        loadNextStep(partialName);
+//    }
+//}
 function NWHVerification(partialName) {
     const neckInput = document.getElementById("neck");
     const waistInput = document.getElementById("waist");
     const hipInput = document.getElementById("hip");
 
-    const neck = neckInput.value;
-    const waist = waistInput.value;
-    const hip = hipInput ? hipInput.value : null;
+    const neck = parseFloat(neckInput.value);
+    const waist = parseFloat(waistInput.value);
+    const hip = hipInput ? parseFloat(hipInput.value) : null;
 
     const selectedGender = sessionStorage.getItem('selectedGender');
 
     let isValid = true;
 
     // Validate Neck
-    if (neck.trim() === "" || neck <= 0) {
-        showErrorTooltip(neckInput, "Please enter a valid neck measurement");
+    if (neckInput.value.trim() === "" || neck < 30 || neck > 60) {
+        showErrorTooltip(neckInput, "Neck measurement should be between 30 and 60 cm");
         isValid = false;
     }
 
     // Validate Waist
-    if (waist.trim() === "" || waist <= 0) {
-        showErrorTooltip(waistInput, "Please enter a valid waist measurement");
+    if (waistInput.value.trim() === "" || waist < 50 || waist > 150) {
+        showErrorTooltip(waistInput, "Waist measurement should be between 50 and 150 cm");
         isValid = false;
     }
 
+    // Neck should be less than Waist
+    if (neck >= waist) {
+        showErrorTooltip(neckInput, "Neck measurement should be less than Waist measurement");
+        isValid = false;
+    }
 
-    // Validate Hip if gender is female
-    if (selectedGender === 'Female' && (hip.trim() === "" || hip <= 0)) {
-        showErrorTooltip(hipInput, "Please enter a valid hip measurement");
+    // Validate Hip if gender is Female
+    if (selectedGender === 'Female' && (hipInput && (hipInput.value.trim() === "" || hip < 50 || hip > 150))) {
+        showErrorTooltip(hipInput, "Hip measurement should be between 50 and 150 cm");
         isValid = false;
     }
 
@@ -206,6 +247,18 @@ function NWHVerification(partialName) {
     }
 }
 
+function showErrorTooltip(element, message) {
+    let tooltip = new mdb.Tooltip(element, {
+        title: message,
+        placement: 'bottom'
+    });
+    tooltip.show();
+
+    // Optionally clear input and hide tooltip after a delay
+    setTimeout(() => {
+        tooltip.hide();
+    }, 2000); // Hide tooltip after 2 seconds
+}
 function showErrorTooltip(inputElement, message) {
     let tooltip = new mdb.Tooltip(inputElement, {
         title: message,
