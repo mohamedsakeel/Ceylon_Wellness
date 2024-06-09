@@ -2,7 +2,7 @@
 
 <div class="container container-width">
     <div class="d-flex flex-column align-items-center">
-        <h2 class="text-primary mt-3 mb-5">Enter Body Fat Measurements</h2>
+        <h2 class="text-primary mt-3 mb-4">Enter Body Fat Measurements</h2>
         <div id="measurements">
             <label for="neck" class="form-label text-primary">Neck (Cm)</label>
             <input asp-for="Neck" type="text" id="neck" class="form-control big-input mb-4" required />
@@ -15,9 +15,15 @@
 
         </div>
         
-        <p class="notice mt-3">
+        <p class="notice mt-2">
             <strong>Note: </strong>To accurately calculate body fat percentage, these measurements can help ensure precision and provide the most accurate results.
         </p>
-        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="NWHVerification('Steps/_SelectGoal')">Continue</button>
+        @* <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="NWHVerification('Steps/_SelectGoal')">Continue</button> *@
+        <div class="d-flex justify-content-center fixed-bottom mt-5 mb-4">
+            <div class="d-flex">
+                <button type="button" onclick="loadNextStep('Steps/_heightWeight')" class="btn btn-secondary btn-lg mx-2">Previous</button>
+                <button type="button" onclick="NWHVerification('Steps/_SelectGoal')" class="btn btn-primary btn-lg mx-2">Continue</button>
+            </div>
+        </div>
     </div>
 </div>
