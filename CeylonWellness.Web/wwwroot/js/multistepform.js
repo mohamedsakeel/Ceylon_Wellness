@@ -189,7 +189,7 @@ function WHVerification(partialName) {
     // If both weight and height are valid, calculate BMI
     const bmi = calculateBMI(weight, height);
     document.getElementById('bmi').value = bmi;
-
+    document.getElementById('weightss').value = weight;
     // Proceed to the next step
     loadNextStep(partialName);
 }
@@ -324,7 +324,7 @@ function TargetWeightVerification(partialName) {
 
     const weight = document.getElementById('weightss').value;
     const goalinput = document.getElementById('goal');
-    const goal = document.getElementById('goal').value;
+    const goal = document.getElementById('goals').value;
 
     if (goal == "") {
         let goalTooltip = new mdb.Tooltip(goalinput, {
