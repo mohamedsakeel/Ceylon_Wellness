@@ -12,7 +12,7 @@ namespace CeylonWellness.Web.Models
         public string ActivityLevel { get; set; }
         public int MaintaincalAmount { get; set; }
         public float TargetWeight { get; set; }
-        public string MealPreference { get; set; }
+        public string Diatpref { get; set; }
         public string MeatType { get; set; }
         public string WeeklyGoal { get; set; }
         public double BMI { get; set; }
@@ -24,5 +24,7 @@ namespace CeylonWellness.Web.Models
 
         public string Dairy { get; set; }
         public string Eggs { get; set; }
+
+        public string MacroPreference { get; set; }
     }
 }
