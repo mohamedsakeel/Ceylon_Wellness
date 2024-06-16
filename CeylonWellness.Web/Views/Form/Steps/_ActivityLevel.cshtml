@@ -3,7 +3,7 @@
 
 <div class="container container-width">
     <div class="d-flex flex-column align-items-center">
-        <h2 class="text-primary mt-2">What is your activity level?</h2>
+        <h2 class="text-primary mt-3">What is your activity level?</h2>
         <input type="hidden" asp-for="ActivityLevel" id="ActivityLevel" />
         <a class="btn btn-outline-primary gender-btn selected padd-bn" id="gain" data-actlevel="Sedentary" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectActivity(this)">
             <i><img width="32px" src="/Assets/signal 1.svg" /></i>
@@ -26,12 +26,6 @@
             <span class="act-title">Highly active<br /><span class="act-subtitle">Hard daily exercise / sports & physical job</span></span>
         </a>
 
-        @* <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_SelectWeekGoal')">Continue</button> *@
-        <div class="d-flex justify-content-center fixed-bottom mt-4 mb-4">
-            <div class="d-flex">
-                <button type="button" onclick="loadNextStep('Steps/_SelectGoal')" class="btn btn-secondary btn-lg mx-2">Previous</button>
-                <button type="button" onclick="loadNextStep('Steps/_SelectWeekGoal')" class="btn btn-primary btn-lg mx-2">Continue</button>
-            </div>
-        </div>
+        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_SelectWeekGoal')">Continue</button>
     </div>
 </div>

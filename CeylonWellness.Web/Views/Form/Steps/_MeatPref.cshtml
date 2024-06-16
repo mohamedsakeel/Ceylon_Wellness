@@ -1,28 +1,20 @@
 ﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
 
 
-   <div class="container container-width">
-        <div class="d-flex flex-column align-items-center">
-            <h2 class="text-primary mt-2">What meats do you usually eat?</h2>
-            <p class="text-primary mb-2">Select which apply</p>
+<div class="container container-width">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3">What is your meat type preference</h2>
+        <p class="text-primary mb-5">Select which apply</p>
 
-            <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Chicken</a>
-            <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Beef</a>
-            <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Mutton</a>
-            <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Pork</a>
-            <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Fish</a>
-            <a class="btn btn-outline-primary gender-btn txt padd" onclick="selectBarriers(this)">
-                <span class="goal-title">Other Sea Food<br /><span class="goal-subtitle">(crabs, shrimp, cuttle fish, oyster, lobster)</span></span>
-            </a>
+        <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Chicken</a>
+        <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Beef</a>
+        <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Mutton</a>
+        <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Pork</a>
+        <a class="btn btn-outline-primary gender-btn txt" onclick="selectBarriers(this)">Fish</a>
+        <a class="btn btn-outline-primary gender-btn txt padd" onclick="selectBarriers(this)">
+            <span class="goal-title">Other Sea Food<br /><span class="goal-subtitle">(crabs, shrimp, cuttle fish, oyster, lobster)</span></span>
+        </a>
 
-            @* <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_DairyProductsEggs')">Continue</button> *@
-        <div class="d-flex justify-content-center fixed-bottom mt-4 mb-4">
-            <div class="d-flex">
-                <button type="button" onclick="loadNextStep('Steps/_SelectDiatpref')" class="btn btn-secondary btn-lg mx-2">Previous</button>
-                <button type="button" onclick="loadNextStep('Steps/_DairyProductsEggs')" class="btn btn-primary btn-lg mx-2">Continue</button>
-            </div>
-        </div>
-        </div>
+        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_ActivityLevel')">Continue</button>
     </div>
-
-
+</div>
