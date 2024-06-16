@@ -1,0 +1,33 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+<div class="container container-width">
+    <div class="d-flex flex-column align-items-center">
+        <h2 class="text-primary mt-3 mb-4">How many meals would you like to take per day?</h2>
+        <div id="mealOptions" class="d-flex flex-column align-items-center mt-4">
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref twomeal" data-pref="budgetPlan">2 Main Meals</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemeal" data-pref="lowCarb">3 Main Meals</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealonesnack" data-pref="balanced">3 Main Meals with 1 snack</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealtwosnack" data-pref="highProtein">3 Main Meals with 2 snacks</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealthreesnack" data-pref="highProtein">3 Main Meals with 3 snacks</button>
+
+        </div>
+
+        <div class="d-flex justify-content-center fixed-bottom mt-5 mb-4">
+            <div class="d-flex">
+                <button type="button" onclick="loadNextStep('Steps/_SelectMacroType')" class="btn btn-secondary btn-lg mx-2">Previous</button>
+                <button type="button" onclick="loadNextStep('Steps/_SelectMealIntake')" class="btn btn-primary btn-lg mx-2">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        populateMealOptions(); // Initial call when the document is ready
+
+        // Assuming you load the partial view via AJAX, you need to re-apply the function
+        $('#mealOptions').on('load', function () {
+            populateMealOptions();
+        });
+    });
+</script>

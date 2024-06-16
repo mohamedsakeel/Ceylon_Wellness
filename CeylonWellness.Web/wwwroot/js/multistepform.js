@@ -573,75 +573,6 @@ function setEggs(value) {
         document.getElementById('eggs-no-btn').classList.remove('btn-outline-primary');
     }
 }
-//document.addEventListener('DOMContentLoaded', function () {
-//    // This function runs when the DOM is fully loaded
-//    const containerElement = document.querySelector('.container.container-width');
-//    console.log('Container Element:', containerElement);
-
-//    const macroOptionsContainer = document.querySelector('.macro-options-container');
-//    console.log('Macro Options Container:', macroOptionsContainer);
-
-//    // You can perform further actions based on these selections
-//    if (containerElement && macroOptionsContainer) {
-//        // Example: Call a function to work with these elements
-//        console.log('Both elements found, proceed with further logic.');
-//        populateMacroOptions(); // Example function call
-//    } else {
-//        console.error('One or both elements not found.');
-//    }
-//});
-//function populateMacroOptions() {
-//    // Implement your logic to populate options here
-//    // Example:
-//    const goalElement = document.getElementById('goals'); // Ensure this element exists
-//    if (!goalElement) {
-//        console.error('Goal element not found!');
-//        return;
-//    }
-//    const goal = goalElement.value;
-
-//    let options = [];
-
-//    if (goal === 'Lose Weight') {
-//        options = [
-//            { text: 'Value Protein Plan (Budget plan)', value: 'budgetPlan' },
-//            { text: 'Low Carb', value: 'lowCarb' },
-//            { text: 'Balanced', value: 'balanced' },
-//            { text: 'High Protein', value: 'highProtein' }
-//        ];
-//    } else if (goal === 'Maintenance') {
-//        options = [
-//            { text: 'Value Protein Plan (Budget plan)', value: 'budgetPlan' },
-//            { text: 'Balanced', value: 'balanced' },
-//            { text: 'High Protein', value: 'highProtein' }
-//        ];
-//    } else if (goal === 'Weight Gain') {
-//        options = [
-//            { text: 'Value Protein Plan (Budget plan)', value: 'budgetPlan' },
-//            { text: 'Balanced', value: 'balanced' },
-//            { text: 'High Protein', value: 'highProtein' }
-//        ];
-//    }
-
-//    // Clear existing options
-//    macroOptionsContainer.innerHTML = '';
-
-//    // Populate options
-//    options.forEach(option => {
-//        const button = document.createElement('button');
-//        button.className = 'btn btn-outline-primary gender-btn txt macropref';
-//        button.dataset.pref = option.value;
-//        button.innerText = option.text;
-//        button.addEventListener('click', function () {
-//            selectMacroType(option.value);
-//        });
-//        macroOptionsContainer.appendChild(button);
-//    });
-//}
-
-//function selectMacroType(pref) {
-//    document.getElementById('Macropref').value = pref;
-//}
 
 // Function to handle selection of dietary preference
 function selectDiatpref(button) {
@@ -676,6 +607,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 function populateMacroOptions() {
     const goalElement = document.getElementById('goals');
+    const selectedDiet = document.getElementById('Diatprefs').value;
+
     if (!goalElement) {
         console.error('Goal element not found!');
         return;
@@ -697,7 +630,15 @@ function populateMacroOptions() {
             elements[i].classList.add('hide');
         }
     }
+    function selectOption(optionId) {
+        const element = document.getElementById(optionId);
+        if (element) {
+            element.classList.add('selected'); // Adjust class or styling as needed
+        }
+    }
     console.log(goal)
+    
+    
     // Show or hide options based on the selected goal using if-else statements
     if (goal == 'Lose Weight') {
         showOption('budgetPlan');
@@ -719,55 +660,12 @@ function populateMacroOptions() {
         console.error('Invalid goal:', goal);
         // show all options or hide all options
     }
+    // Auto-select 'Value Protein Plan (Budget plan)' if diet is 'Vegetarian'
+    if (selectedDiet === 'Vegetarian') {
+        selectOption('budgetPlan');
+    }
+    
 }
-//function populateMacroOptions() {
-//    const goalElement = document.getElementById('goals'); // Ensure this element exists
-//    if (!goalElement) {
-//        console.error('Goal element not found!');
-//        return;
-//    }
-
-//    const goal = goalElement.value; // Get selected goal value
-
-//    // Show or hide options based on the selected goal
-//    switch (goal) {
-//        case 'Lose Weight':
-//            showOption('budgetPlan');
-//            showOption('lowCarb');
-//            showOption('balanced');
-//            showOption('highProtein');
-//            break;
-//        case 'Maintain Weight':
-//            showOption('budgetPlan');
-//            hideOption('lowCarb');
-//            showOption('balanced');
-//            showOption('highProtein');
-//            break;
-//        case 'Gain Weight':
-//            showOption('budgetPlan');
-//            hideOption('lowCarb');
-//            showOption('balanced');
-//            showOption('highProtein');
-//            break;
-//        default:
-//            console.error('Invalid goal:', goal);
-//            break;
-//    }
-//}
-
-//function showOption(pref) {
-//    const option = document.querySelector(`.macropref[data-pref="${pref}"]`);
-//    if (option) {
-//        option.style.display = 'inline-block'; // Adjust display property as needed
-//    }
-//}
-
-//function hideOption(pref) {
-//    const option = document.querySelector(`.macropref[data-pref="${pref}"]`);
-//    if (option) {
-//        option.style.display = 'none';
-//    }
-//}
 function handleMacroNextStep() {
     const selectedDiat = document.getElementById('Diatprefs').value;
 
@@ -777,28 +675,154 @@ function handleMacroNextStep() {
         if (selectedDiat === 'Non Vegetarian') {
             loadNextStep('Steps/_SelectMacroType'); // Load DairyProductsEggs for vegetarians
         } else if(selectedDiat === 'Vegetarian')  {
-            loadNextStep('Steps/_ActivityLevel'); // Load MeatPref for non-vegetarians
+            //loadNextStep('Steps/_ActivityLevel'); // Load MeatPref for non-vegetarians
+            loadNextStep('Steps/_SelectMacroType');
         }
     } else {
         alert('Please select a diet');
     }
 }
+function populateMealOptions() {
+    const goalElement = document.getElementById('goals');
+    const selectedDiet = document.getElementById('Diatprefs').value;
+    var actlevel = document.getElementById("activelevel").value;
 
-//function handleMacroNextStep() {
-//    const selectedDiat = document.getElementById('Diatpref').value;
-//    const selectedGoal = document.getElementById('goals').value;
-//    if (selectedDiat) {
-//        // Depending on the selected preference, load the appropriate next step
-//        if (selectedDiat === 'Non Vegetarian') {
-//            loadNextStep('Steps/_SelectMacroType'); 
-//        } else {
-//            loadNextStep('Steps/_ActivityLevel');
-//        }
-//    } else {
-//        // Inform the user to select a preference before proceeding
-//        alert('Please select a dietary preference before continuing.');
-//    }
-//}
+    if (!actlevel) {
+        console.error('Activity element not found!');
+        return;
+    }
+
+    const goal = goalElement.value;
+
+    // Helper functions to show or hide options
+    function showOption(optionClass) {
+        const elements = document.getElementsByClassName(optionClass);
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove('hide'); // Adjust display style as needed
+        }
+    }
+
+    function hideOption(optionClass) {
+        const elements = document.getElementsByClassName(optionClass);
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.add('hide');
+        }
+    }
+    function selectOption(optionId) {
+        const element = document.getElementById(optionId);
+        if (element) {
+            element.classList.add('selected'); // Adjust class or styling as needed
+        }
+    }
+    console.log(goal)
+
+
+    // Show or hide options based on the selected goal using if-else statements
+    if (goal == 'Lose Weight' && actlevel == "Sedentary") {
+        showOption('twomeal');
+        showOption('threemeal');
+        hideOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Lose Weight' && actlevel == "Lighly active") {
+        showOption('twomeal');
+        showOption('threemeal');
+        showOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Lose Weight' && actlevel == "Moderately active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        showOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Lose Weight' && actlevel == "Very active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        showOption('threemealonesnack');
+        showOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Lose Weight' && actlevel == "Highly active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        hideOption('threemealonesnack');
+        showOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    //} else if (goal == 'Gain Weight') {
+    //    console.log("Gain weight is selected")
+    //    showOption('budgetPlan');
+    //    hideOption('lowCarb'); // Hide 'lowCarb' option when gaining weight
+    //    showOption('balanced');
+    //    showOption('highProtein');
+    }else if (goal == 'Maintain Weight' && actlevel == "Sedentary") {
+        hideOption('twomeal');
+        showOption('threemeal');
+        hideOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Maintain Weight' && actlevel == "Lighly active") {
+        hideOption('twomeal');
+        showOption('threemeal');
+        showOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Maintain Weight' && actlevel == "Moderately active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        showOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Maintain Weight' && actlevel == "Very active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        showOption('threemealonesnack');
+        showOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Maintain Weight' && actlevel == "Highly active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        hideOption('threemealonesnack');
+        showOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    }
+    else if (goal == 'Gain Weight' && actlevel == "Sedentary") {
+        hideOption('twomeal');
+        showOption('threemeal');
+        showOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Gain Weight' && actlevel == "Lighly active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        showOption('threemealonesnack');
+        showOption('threemealtwosnack');
+        hideOption('threemealthreesnack');
+    } else if (goal == 'Gain Weight' && actlevel == "Moderately active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        hideOption('threemealonesnack');
+        showOption('threemealtwosnack');
+        showOption('threemealthreesnack');
+    } else if (goal == 'Gain Weight' && actlevel == "Very active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        hideOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        showOption('threemealthreesnack');
+    } else if (goal == 'Gain Weight' && actlevel == "Highly active") {
+        hideOption('twomeal');
+        hideOption('threemeal');
+        hideOption('threemealonesnack');
+        hideOption('threemealtwosnack');
+        showOption('threemealthreesnack');
+    }
+    else {
+        console.error('Invalid goal:', goal);
+        // show all options or hide all options
+    }
+
+}
+
 
 
 
