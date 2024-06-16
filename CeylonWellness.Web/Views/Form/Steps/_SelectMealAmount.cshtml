@@ -24,7 +24,22 @@
 
             <span class="act-title">3 Meals, 2 Snacks<br /><span class="act-subtitle">3 Main meals and 1 Morning snack and 1 evening snack</span></span>
         </a>
-
-        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_BMISummary')">Continue</button>
+        <div class="d-flex justify-content-center fixed-bottom mt-4 mb-4">
+            <div class="d-flex">
+                <button type="button" onclick="loadNextStep('Steps/_SelectWeekGoal')" class="btn btn-secondary btn-lg mx-2">Previous</button>
+                <button type="button" onclick="loadNextStep('Steps/_BMISummary')" class="btn btn-primary btn-lg mx-2">Continue</button>
+            </div>
+        </div>
+        @* <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="loadNextStep('Steps/_BMISummary')">Continue</button> *@
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        updateGoal(); // Initial call when the document is ready
+
+        // Assuming you load the partial view via AJAX, you need to re-apply the function
+        $('#contload').on('load', function () {
+            updateGoal();
+        });
+    });
+</script>

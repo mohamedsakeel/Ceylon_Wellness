@@ -4,34 +4,46 @@
 
 <div class="container container-width">
     <div class="d-flex flex-column align-items-center">
-        <h2 class="text-primary mt-3 mb-5">What do you want to achieve</h2>
+        <h2 class="text-primary mt-3 mb-5">What do you want to achieve?</h2>
         <input type="hidden" asp-for="goal" id="goal" />
 
         <a class="btn btn-outline-primary gender-btn selected goal" id="gain" data-goal="Gain Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
-            <div class="circle"></div>
             <span class="goal-title">Gain Weight<br /><span class="goal-subtitle">Eat more calories than you burn</span></span>
             <i><img class="bton-image" src="/Assets/male-lose-weight-2x.c1aa4a86ceeef081.png" /></i>
         </a>
 
         <a class="btn btn-outline-primary gender-btn selected goal" id="lose" data-goal="Lose Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
-            <div class="circle"></div>
             <span class="goal-title">Lose Weight<br /><span class="goal-subtitle">Eat fewer calories than you burn</span></span>
             <i><img class="bton-image" src="/Assets/male-heart-health-2x.cbb00f39e6bfb133.png" /></i>
         </a>
 
         <a class="btn btn-outline-primary gender-btn selected goal" id="maint" data-goal="Maintain Weight" data-mdb-ripple-init data-mdb-ripple-color="dark" onclick="selectGoal(this)">
-            <div class="circle"></div>
             <span class="goal-title">Maintain Weight<br /><span class="goal-subtitle">Eat the amount of calories that you burn</span></span>
             <i><img class="bton-image" src="/Assets/male-get-firm-2x.86dc6f158f75aeb8.png" /></i>
         </a>
 
         <h2 id="hidethis" class="text-primary my-5">What is your target weight?</h2>
-        <input type="number" id="targetweight" class="form-control big-input" />
+        <div class="row justify-content-center">
+            <div class="col-md-12" id="targetWeightContainer">
+                <div class="input-group mb-8">
+                    <input type="number" id="targetweight" class="form-control big-input">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Kg</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center fixed-bottom mt-5 mb-4">
+            <div class="d-flex">
+                <button type="button" onclick="loadNextStep('Steps/_SetBodyMeasurements')" class="btn btn-secondary btn-lg mx-2">Previous</button>
+                <button type="button" onclick="loadNextStep('Steps/_ActivityLevel')" class="btn btn-primary btn-lg mx-2">Continue</button>
+            </div>
+        </div>
 
-        <button class="cl btn btn-primary mt-5 set-bottom" type="button" onclick="TargetWeightVerification('Steps/_SelectBarrier')">Continue</button>
+
+        @* <button class="cl btn btn-primary mb-4 set-bottom" type="button" onclick="TargetWeightVerification('Steps/_SelectBarrier')">Continue</button> *@
     </div>
 </div>
-
 
 
 
