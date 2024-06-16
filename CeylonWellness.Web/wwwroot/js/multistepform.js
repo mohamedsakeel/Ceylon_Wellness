@@ -185,11 +185,14 @@ function WHVerification(partialName) {
         showErrorTooltip(heightInput, "Height should be between 100 and 300 cm");
         return; // Don't continue if height is invalid
     }
+    document.getElementById('WeightBMR').value = weight;
 
+    document.getElementById("HeightBMR").value = height;
     // If both weight and height are valid, calculate BMI
     const bmi = calculateBMI(weight, height);
     document.getElementById('bmi').value = bmi;
     document.getElementById('weightss').value = weight;
+
     // Proceed to the next step
     loadNextStep(partialName);
 }
