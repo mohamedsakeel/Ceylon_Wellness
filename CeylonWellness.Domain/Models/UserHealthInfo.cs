@@ -23,5 +23,17 @@ namespace CeylonWellness.Domain.Models
         public int NoofMealsperDay { get; set; }
         [ForeignKey("User")]
         public string UserId { get; set; }
+        public double Neck { get; set; }
+        public double Waist { get; set; }
+        public double Hip { get; set; }
+
+        public string Dairy { get; set; }
+        public string Eggs { get; set; }
+
+        public string MacroPreference { get; set; }
+
+        public string wheyproteinpref { get; set; }
+        public string mealintakepref { get; set; }
+        public string macropref { get; set; }
     }
 }

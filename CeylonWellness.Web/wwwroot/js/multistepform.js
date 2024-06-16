@@ -446,6 +446,8 @@ function selectWheyproteinpref(button) {
     button.classList.add('btn-selected');
 
 }
+
+
 function selectMealinpref(button) {
     const mealintakepref = button.getAttribute('data-pref');
     document.getElementById('mealintakepref').value = mealintakepref;
@@ -914,7 +916,7 @@ function BMISummaryOnLoad() {
     const dacal = Math.round(dailyCalories);
     document.getElementById('dailycalorie').innerText = dacal;
 
-    document.getElementById('MaintaincalAmount').value = dacal;
+    document.getElementById('maintcalamount').value = dacal;
 }
 
 
@@ -959,17 +961,17 @@ function calculateCalorieNeeds(gender, weight, height, age, activityLevel) {
     return TDEE;
 }
 
-function BMISummaryOnLoad() {
-    const gender = document.getElementById("GenderBMR").value;
-    const weight = document.getElementById("WeightBMR").value;
-    const height = document.getElementById("HeightBMR").value;
-    const age = document.getElementById("AgeBMR").value;
-    const activityLevel = document.getElementById("ActlevelBMR").value;
+//function BMISummaryOnLoad() {
+//    const gender = document.getElementById("GenderBMR").value;
+//    const weight = document.getElementById("WeightBMR").value;
+//    const height = document.getElementById("HeightBMR").value;
+//    const age = document.getElementById("AgeBMR").value;
+//    const activityLevel = document.getElementById("ActlevelBMR").value;
 
-    const dailyCalories = calculateCalorieNeeds(gender, weight, height, age, activityLevel);
-    const dacal = Math.round(dailyCalories);
-    document.getElementById('dailycalorie').innerText = dacal;
+//    const dailyCalories = calculateCalorieNeeds(gender, weight, height, age, activityLevel);
+//    const dacal = Math.round(dailyCalories);
+//    document.getElementById('dailycalorie').innerText = dacal;
 
-    document.getElementById('MaintaincalAmount').value = dacal;
-}
+//    document.getElementById('MaintaincalAmount').value = dacal;
+//}
 

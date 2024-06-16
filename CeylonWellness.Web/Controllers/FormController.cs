@@ -91,6 +91,44 @@ namespace CeylonWellness.Web.Controllers
             {
                 formData.MealPreference = modelData.MealPreference;
             }
+            if (modelData.Neck != 0)
+            {
+                formData.Neck = modelData.Neck;
+            }
+            if (modelData.Waist != 0)
+            {
+                formData.Waist = modelData.Waist;
+            }
+            if (modelData.Hip != 0)
+            {
+                formData.Hip = modelData.Hip;
+            }
+            if (modelData.Dairy != null)
+            {
+                formData.Dairy = modelData.Dairy;
+            }
+            if (modelData.Eggs != null)
+            {
+                formData.Eggs = modelData.Eggs;
+            }
+            if (modelData.MacroPreference != null)
+            {
+                formData.MacroPreference = modelData.MacroPreference;
+            }
+            if (modelData.wheyproteinpref != null)
+            {
+                formData.wheyproteinpref = modelData.wheyproteinpref;
+            }
+            if (modelData.mealintakepref != null)
+            {
+                formData.mealintakepref = modelData.mealintakepref;
+            }
+            if (modelData.macropref != null)
+            {
+                formData.macropref = modelData.macropref;
+            }
+            
+
 
             // Add similar checks for other properties as needed
 
@@ -119,10 +157,20 @@ namespace CeylonWellness.Web.Controllers
             us.TargetWeight = model.TargetWeight;
             us.BMI = model.BMI;
             us.NoofMealsperDay = model.NoofMealsperDay;
-            us.MealPreference = model.MealPreference;
+            us.MealPreference = "None";
             us.MeatType = "Any";
-            us.MaintaincalAmount = model.MaintaincalAmount;
+            us.MaintaincalAmount = 2160;
             us.Height = model.Height;
+            us.Neck = model.Neck;
+            us.Waist = model.Waist;
+            us.Hip = model.Hip;
+            us.Dairy = model.Dairy;
+            us.Eggs = model.Eggs;
+            us.macropref = model.macropref;
+            us.mealintakepref = model.mealintakepref;
+            us.wheyproteinpref = model.wheyproteinpref;
+            us.MacroPreference = model.macropref;
+
 
             _context.userHealthInfos.Add(us);
 

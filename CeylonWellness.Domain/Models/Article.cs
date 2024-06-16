@@ -59,5 +59,9 @@ namespace CeylonWellness.Domain.Models
     public class ArticleViewModel
     {
         public List<ArticleSummaryModel> Articles { get; set; }
+        public List<ArticleSummaryModel> SleepProblem { get; set; }
+        public List<ArticleSummaryModel> LackMotivation { get; set; }
+        public List<ArticleSummaryModel> EmotionalEating { get; set; }
+
     }
 }
