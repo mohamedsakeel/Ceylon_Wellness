@@ -1,6 +1,7 @@
 ﻿using CeylonWellness.Domain.Models;
 using CeylonWellness.Web.Extensions;
 using CeylonWellness.Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Sanity.Linq;
@@ -8,6 +9,7 @@ using Sanity.Linq.BlockContent;
 
 namespace CeylonWellness.Web.Controllers
 {
+    [Authorize]
     public class ArticlesController : Controller
     {
         private readonly SanityDataContext _Sanitycontext;
@@ -44,6 +46,33 @@ namespace CeylonWellness.Web.Controllers
                 Subtitle = article.Subtitle,
             }).ToList();
 
+            var SleepProblem = publishedarticles.Where(a => a.Slug.Current == "sleep" 
+            || a.Slug.Current == "improving-health-and-well-being-through-natural-practices"
+            || a.Slug.Current == "one-of-the-best-podcast-you-should-follow"
+            || a.Slug.Current == "biggest-reveal").Select(article => new ArticleSummaryModel
+            {
+                slug = article.Slug.Current,
+                Title = article.Title,
+                Subtitle = article.Subtitle,
+            }).ToList();
+
+            var LackMotivation = publishedarticles.Where(a => a.Slug.Current == "how-to-get-motivated-to-eat-healthy-and-exercise"
+            || a.Slug.Current == "one-of-the-best-podcast-you-should-follow"
+            || a.Slug.Current == "biggest-reveal").Select(article => new ArticleSummaryModel
+            {
+                slug = article.Slug.Current,
+                Title = article.Title,
+                Subtitle = article.Subtitle,
+            }).ToList();
+
+            var EmotionalEating = publishedarticles.Where(a => a.Slug.Current == "one-of-the-best-podcast-you-should-follow"
+            || a.Slug.Current == "biggest-reveal").Select(article => new ArticleSummaryModel
+            {
+                slug = article.Slug.Current,
+                Title = article.Title,
+                Subtitle = article.Subtitle,
+            }).ToList();
+
             htmlBuilder.AddSerializer("quiz", _sanityService.QuizSerializeAsync);
 
             ArticleHtmlContents = new List<string>();
@@ -55,7 +84,10 @@ namespace CeylonWellness.Web.Controllers
 
             var viewModel = new ArticleViewModel
             {
-                Articles = articlesummary
+                Articles = articlesummary,
+                SleepProblem = SleepProblem,
+                LackMotivation = LackMotivation,
+                EmotionalEating = EmotionalEating
             };
 
             return View(viewModel);

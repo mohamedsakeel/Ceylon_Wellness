@@ -1,0 +1,39 @@
+﻿.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+    .card h3 {
+        margin-top: 0;
+    }
+
+.bg-image {
+    background-image: url('/Assets/—Pngtree—blue abstract background images free_1996215.jpg');
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.quiz {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+img {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
