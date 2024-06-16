@@ -2,12 +2,13 @@
 
 <div class="container container-width">
     <div class="d-flex flex-column align-items-center">
+        <input type="hidden" asp-for="macropref" id="macropref" />
         <h2 class="text-primary mt-3 mb-4">What is your macro type?</h2>
         <div id="macroOptions" class="d-flex flex-column align-items-center mt-4">
-            <button type="button" class="btn btn-outline-primary gender-btn txt macropref budgetPlan" data-pref="budgetPlan">Value Protein Plan (Budget plan)</button>
-            <button type="button" class="btn btn-outline-primary gender-btn txt macropref lowCarb" data-pref="lowCarb">Low Carb</button>
-            <button type="button" class="btn btn-outline-primary gender-btn txt macropref balanced" data-pref="balanced">Balanced</button>
-            <button type="button" class="btn btn-outline-primary gender-btn txt macropref highProtein" data-pref="highProtein">High Protein</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt macropref budgetPlan" data-pref="budgetPlan" onclick="selectMacroinpref(this)">Value Protein Plan (Budget plan)</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt macropref lowCarb" data-pref="lowCarb" onclick="selectMacroinpref(this)">Low Carb</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt macropref balanced" data-pref="balanced" onclick="selectMacroinpref(this)">Balanced</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt macropref highProtein" data-pref="highProtein" onclick="selectMacroinpref(this)">High Protein</button>
         </div>
 
         <p class="notice mt-2">

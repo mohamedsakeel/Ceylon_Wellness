@@ -394,7 +394,7 @@ function selectGoal(button) {
         button.classList.toggle('btn-selected');
 }
 function selectWheyproteinpref(button) {
-    const ActivityLevel = button.getAttribute('data-pref');
+    const wheyproteinpref = button.getAttribute('data-pref');
     document.getElementById('wheyproteinpref').value = wheyproteinpref;
     document.getElementById('wheyproteinprefs').value = wheyproteinpref;
 
@@ -405,7 +405,31 @@ function selectWheyproteinpref(button) {
     button.classList.add('btn-selected');
 
 }
+function selectMealinpref(button) {
+    const mealintakepref = button.getAttribute('data-pref');
+    document.getElementById('mealintakepref').value = mealintakepref;
+    document.getElementById('mealintakeprefs').value = mealintakepref;
 
+    // Remove 'selected' class from all buttons
+    document.querySelectorAll('.mealintakepref').forEach(btn => btn.classList.remove('btn-selected'));
+
+    // Add 'selected' class to the clicked button
+    button.classList.add('btn-selected');
+
+}
+
+function selectMacroinpref(button) {
+    const macropref = button.getAttribute('data-pref');
+    document.getElementById('macropref').value = macropref;
+    document.getElementById('macroprefs').value = macropref;
+
+    // Remove 'selected' class from all buttons
+    document.querySelectorAll('.macropref').forEach(btn => btn.classList.remove('btn-selected'));
+
+    // Add 'selected' class to the clicked button
+    button.classList.add('btn-selected');
+
+}
     function selectDiatpref(button) {
         const goalValue = button.getAttribute('data-pref');
         document.getElementById('Diatpref').value = goalValue;

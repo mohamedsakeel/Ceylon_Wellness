@@ -28,6 +28,7 @@ namespace CeylonWellness.Web.Models
         public string MacroPreference { get; set; }
 
         public string wheyproteinpref { get; set; }
-
+        public string mealintakepref { get; set; }
+        public string macropref { get; set; }
     }
 }
