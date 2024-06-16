@@ -702,8 +702,8 @@ function handleMacroNextStep() {
         if (selectedDiat === 'Non Vegetarian') {
             loadNextStep('Steps/_SelectMacroType'); // Load DairyProductsEggs for vegetarians
         } else if(selectedDiat === 'Vegetarian')  {
-            //loadNextStep('Steps/_ActivityLevel'); // Load MeatPref for non-vegetarians
-            loadNextStep('Steps/_SelectMacroType');
+            loadNextStep('Steps/_ActivityLevel'); // Load MeatPref for non-vegetarians
+            //loadNextStep('Steps/_SelectMacroType');
         }
     } else {
         alert('Please select a diet');
