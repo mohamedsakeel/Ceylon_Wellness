@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     // Initial load
-    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_heightWeight';
+    let initialStep = new URLSearchParams(window.location.search).get('step') || 'Steps/_SelectAge';
     loadStep(initialStep, false); // Do not push state for the initial load
 
     document.getElementById('form-container').addEventListener('submit', function (e) {
