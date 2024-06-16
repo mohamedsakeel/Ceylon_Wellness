@@ -95,7 +95,7 @@ function ageVerification(partialName) {
 
     document.getElementById("AgeBMR").value = age;
     // Age Validation
-    if (isNaN(age) || age < 18 || age > 50) {
+    if (isNaN(age) || age < 18 || age > 45) {
         // Create a Bootstrap tooltip
         let tooltip = new mdb.Tooltip(ageInput, {
             title: "Age must be between 18 and 50",
@@ -122,57 +122,6 @@ function setGender(gender) {
     loadNextStep('Steps/_setAge');
 
 }
-
-//function WHVerification(partialName) {
-//    const weightInput = document.getElementById("weight");
-//    const heightInput = document.getElementById("height");
-
-//    const weight = weightInput.value;
-//    const height = heightInput.value;
-
-//    let bmi = calculateBMI(weight, height);
-
-//    document.getElementById('bmi').value = bmi;
-
-//    if (weight.trim() === "" || weight <= 0) {
-//        // Create a Bootstrap tooltip for weight input
-//        let weightTooltip = new mdb.Tooltip(weightInput, {
-//            title: "Please enter a valid weight",
-//            placement: 'bottom'
-//        });
-//        weightTooltip.show();
-
-//        // Optionally clear weight input and hide tooltip after a delay
-//        setTimeout(() => {
-//            //weightInput.value = '';
-//            weightTooltip.hide();
-//        }, 2000); // Hide tooltip after 2 seconds
-
-//        return; // Don't continue if weight is invalid
-//    }
-
-//    if (height.trim() === "" || height <= 0) {
-//        // Create a Bootstrap tooltip for height input
-//        let heightTooltip = new mdb.Tooltip(heightInput, {
-//            title: "Please enter a valid height",
-//            placement: 'bottom'
-//        });
-//        heightTooltip.show();
-
-//        // Optionally clear height input and hide tooltip after a delay
-//        setTimeout(() => {
-//            //heightInput.value = '';
-//            heightTooltip.hide();
-//        }, 2000); // Hide tooltip after 2 seconds
-
-//        return; // Don't continue if height is invalid
-//    }
-
-//    document.getElementById('weightss').value = weight;
-
-//    // If both weight and height are valid, proceed to the next step
-//    loadNextStep(partialName);
-//}
 function WHVerification(partialName) {
     const weightInput = document.getElementById("weight");
     const heightInput = document.getElementById("height");
@@ -180,13 +129,13 @@ function WHVerification(partialName) {
     const weight = parseFloat(weightInput.value);
     const height = parseFloat(heightInput.value);
 
-    if (isNaN(weight) || weight < 15 || weight > 300) {
-        showErrorTooltip(weightInput, "Weight should be between 15 and 300 kg");
+    if (isNaN(weight) || weight < 30 || weight > 300) {
+        showErrorTooltip(weightInput, "Weight should be between 30 and 300 kg");
         return; // Don't continue if weight is invalid
     }
 
-    if (isNaN(height) || height < 100 || height > 300) {
-        showErrorTooltip(heightInput, "Height should be between 100 and 300 cm");
+    if (isNaN(height) || height < 120 || height > 250) {
+        showErrorTooltip(heightInput, "Height should be between 120 and 250 cm");
         return; // Don't continue if height is invalid
     }
     document.getElementById('WeightBMR').value = weight;
