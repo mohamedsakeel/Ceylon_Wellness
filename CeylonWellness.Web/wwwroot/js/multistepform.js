@@ -116,7 +116,7 @@ function setGender(gender) {
     // Save the gender selection in localStorage or sessionStorage
     sessionStorage.setItem('selectedGender', gender);
     // Redirect to the next step
-    loadNextStep('Steps/_setAge'); // Ensure this step is correct
+    loadNextStep('Steps/_setAge');
 }
 
 //function WHVerification(partialName) {
@@ -850,7 +850,57 @@ function populateMealOptions() {
 
 }
 
+function calculateCalorieNeeds(gender, weight, height, age, activityLevel) {
+    let BMR;
 
+    // Calculate BMR based on gender
+    if (gender === 'Male') {
+        BMR = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+    } else if (gender === 'Female') {
+        BMR = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+    } else {
+        throw new Error('Invalid gender. Please specify "male" or "female".');
+    }
+
+    // Determine the activity factor
+    let activityFactor;
+    switch (activityLevel) {
+        case 'Sedentary':
+            activityFactor = 1.2;
+            break;
+        case 'Lighly active':
+            activityFactor = 1.375;
+            break;
+        case 'Moderately active':
+            activityFactor = 1.55;
+            break;
+        case 'Very active':
+            activityFactor = 1.725;
+            break;
+        case 'Highly active':
+            activityFactor = 1.9;
+            break;
+        default:
+            throw new Error('Invalid activity level. Please specify one of the following: sedentary, lightly active, moderately active, very active, super active.');
+    }
+
+    // Calculate TDEE
+    const TDEE = BMR * activityFactor;
+    return TDEE;
+}
+function BMISummaryOnLoad() {
+    const gender = document.getElementById("GenderBMR").value;
+    const weight = document.getElementById("WeightBMR").value;
+    const height = document.getElementById("HeightBMR").value;
+    const age = document.getElementById("AgeBMR").value;
+    const activityLevel = document.getElementById("ActlevelBMR").value;
+
+    const dailyCalories = calculateCalorieNeeds(gender, weight, height, age, activityLevel);
+    const dacal = Math.round(dailyCalories);
+    document.getElementById('dailycalorie').innerText = dacal;
+
+    document.getElementById('MaintaincalAmount').value = dacal;
+}
 
 
 
