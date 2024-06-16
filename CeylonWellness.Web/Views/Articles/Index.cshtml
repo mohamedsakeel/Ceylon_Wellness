@@ -1,0 +1,35 @@
+﻿@model CeylonWellness.Domain.Models.ArticleViewModel
+
+
+<h2>Articles</h2>
+
+<div class="card-container">
+    @foreach (var article in Model.Articles)
+    {
+        <div class="card">
+            <h3>@article.Title</h3>
+            <p>@article.Subtitle</p>
+            <a href="@Url.Action("Details", new { slug = article.slug })">Read More</a>
+        </div>
+    }
+</div>
+
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        padding: 16px;
+        margin: 8px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+    }
+
+        .card h3 {
+            margin-top: 0;
+        }
+</style>
