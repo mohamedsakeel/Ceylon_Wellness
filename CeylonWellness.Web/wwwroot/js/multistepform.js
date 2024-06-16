@@ -362,6 +362,33 @@ function TargetWeightVerification(partialName) {
 }
 
 //goal update
+//function selectGoal(button) {
+//    const goalValue = button.getAttribute('data-goal');
+//    document.getElementById('goal').value = goalValue;
+//    document.getElementById('goals').value = goalValue;
+
+//    // Remove 'selected' class from all buttons
+//    document.querySelectorAll('.goal').forEach(btn => btn.classList.remove('btn-selected'));
+
+//    // Add 'selected' class to the clicked button
+//    button.classList.add('btn-selected');
+//    if (goalValue == "Maintain Weight") {
+//        var div = document.getElementById('targetweight');
+//        var divv = document.getElementById('hidethis');
+//        div.classList.add('hide');
+//        divv.classList.add('hide');
+
+//        const weight = document.getElementById('weightss').value;
+//        document.getElementById('targetweight').value = weight;
+
+//    }
+//    else {
+//        var div = document.getElementById('targetweight');
+//        var divv = document.getElementById('hidethis');
+//        div.classList.remove('hide');
+//        divv.classList.remove('hide');
+//    }
+//}
 function selectGoal(button) {
     const goalValue = button.getAttribute('data-goal');
     document.getElementById('goal').value = goalValue;
@@ -372,23 +399,23 @@ function selectGoal(button) {
 
     // Add 'selected' class to the clicked button
     button.classList.add('btn-selected');
+
+    const targetWeightContainer = document.getElementById('targetWeightContainer');
+    const targetWeightInput = document.getElementById('targetweight');
+    const hideThisDiv = document.getElementById('hidethis');
+
     if (goalValue == "Maintain Weight") {
-        var div = document.getElementById('targetweight');
-        var divv = document.getElementById('hidethis');
-        div.classList.add('hide');
-        divv.classList.add('hide');
+        targetWeightContainer.classList.add('hide');
+        hideThisDiv.classList.add('hide');
 
         const weight = document.getElementById('weightss').value;
-        document.getElementById('targetweight').value = weight;
-
-    }
-    else {
-        var div = document.getElementById('targetweight');
-        var divv = document.getElementById('hidethis');
-        div.classList.remove('hide');
-        divv.classList.remove('hide');
+        targetWeightInput.value = weight;
+    } else {
+        targetWeightContainer.classList.remove('hide');
+        hideThisDiv.classList.remove('hide');
     }
 }
+
     function selectBarriers(button) {
         // Toggle 'btn-selected' class for the clicked button
         button.classList.toggle('btn-selected');
