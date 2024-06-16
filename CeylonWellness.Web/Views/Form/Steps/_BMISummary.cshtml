@@ -56,13 +56,13 @@
         <h3 class="text-primary mt-3">Your daily calories</h3>
         <p class="text-center text-primary mt-2">The amount of calories you must intake for you to <br />gain weight based on your activity level and BMR</p>
 
-        <span id="dailycalorie" class="daily-calorie text-primary">2100</span>
+        <span id="dailycalorie" class="daily-calorie text-primary"></span>
         <p class="text-primary cal-sub">calories/day</p>
         
         <p class="notice mt-3">
             <strong>Note: </strong>BMR stands for Basal Metabolic Rate. It's the amount of energy your body needs to maintain basic functions while at rest. BMR helps estimate how many calories you burn at rest.<br /><br />The above rate is calculated using Age, height, weight and activity level.</span>
         </p>
-
+        <input type="hidden" asp-for="MaintaincalAmount" id="MaintaincalAmount" />
         <a class="cl btn btn-primary mt-5 set-bottom" type="button" asp-controller="Account" asp-action="Register">Continue</a>
     </div>
 </div>
@@ -73,11 +73,13 @@
     $(document).ready(function () {
         BMIGraph(); // Initial call when the document is ready
         actleve();
+        BMISummaryOnLoad();
 
         // Assuming you load the partial view via AJAX, you need to re-apply the function
         $('#Bmiload').on('load', function () {
             BMIGraph();
             actleve();
+            BMISummaryOnLoad();
         });
     });
 </script>

@@ -1,17 +1,24 @@
 using CeylonWellness.Domain.Models;
 using CeylonWellness.Repositories.Repositories;
 using CeylonWellness.Web.Data;
+using CeylonWellness.Web.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddUserSecrets<Program>();
+}
+
 builder.Services.AddScoped<IFAQRepository, FAQRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddProgressiveWebApp();
+builder.Services.AddSingleton<SanityService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

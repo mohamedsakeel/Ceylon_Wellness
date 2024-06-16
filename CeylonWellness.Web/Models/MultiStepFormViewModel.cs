@@ -17,7 +17,9 @@ namespace CeylonWellness.Web.Models
         public string WeeklyGoal { get; set; }
         public double BMI { get; set; }
         public int NoofMealsperDay { get; set; }
+        public Guid goalid {  get; set; }
         public string goal {  get; set; }
+
         public double Neck { get; set; }
         public double Waist { get; set; }
         public double Hip { get; set; }
@@ -30,5 +32,8 @@ namespace CeylonWellness.Web.Models
         public string wheyproteinpref { get; set; }
         public string mealintakepref { get; set; }
         public string macropref { get; set; }
+
+        public DateOnly EndDate { get; set; }
+
     }
 }

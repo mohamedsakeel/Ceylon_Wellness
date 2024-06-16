@@ -1,8 +1,75 @@
-﻿@{
+﻿@model CeylonWellness.Web.Models.HomeViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Home.css" asp-append-version="true" />
+
+<div class="container container-width" >
+    <div class="row mt-4">
+        <div class="col-6 d-flex justify-content-start">
+            <p class="text-primary username txt-gradient">Welcome, @User.Identity.Name!</p>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <img src="~/Assets/user.png"/>
+        </div>
+        
+        <h2 class="text-primary mt-5">We have created you a plan that suits you based on your selection </h2>
+
+        
+    </div>
+    <div class="row det-card d-flex half-circle-container mt-3">
+        <div class="col-7">
+            <p>Your goal: @Model.GoalName</p>
+            <div class="m-2">
+
+                <p class="mb-0">Target Weight</p>
+                <h5 class="mt-0 margin-10">@Model.TargetWeight Kg</h5>
+                <p class="mb-0">Weekly Goal</p>
+                <h5 class="mt-0 mb-0 margin-10">@Model.WeeklyGoal</h5>
+                <p class="mt-0 margin-10">@Model.goaldetail</p>
+                <p class="mb-0">Your daily calorie intake goal</p>
+                <h5 class="mt-0 margin-10">@Model.Calorie <span>cal.</span></h5>
+            </div>
+            
+        </div>
+        <div class="col-5 d-flex justify-content-center">
+            <img src="~/Assets/generate-a-srilankan-couple-standing-posing-with-a-flRMfYopQ1GZZNivYjrKDg-dd714m1HS8CiOFHMqmgfxg.png" width="100px" />
+        </div>
+    </div>
+
+    <p class="notice mt-4">We use advanced AI and ML technology to create personalized meal plans just for you at Ceylon Wellness</p>
+    
+    <div class="row det-card mt-4 d-flex">
+        <div class="col-4 d-flex flex-column justify-content-start mt-2">
+            <h5>Day 2, Week 1</h5>
+            <p class="mb-0">Calorie</p>
+            <h1 class="mt-0">@Model.Calorie</h1>
+        </div>
+        <div class="col-8 d-flex justify-content-around">
+            <div class="row d-flex">
+                <div class="col-4 align-self-center d-flex flex-column ">
+                    <h3 style="color: #FEC635">29%</h3>
+                    <p class="mb-0">Fat</p>
+                </div>
+                <div class="col-4 align-self-center">
+                    <h3 style="color: #3585FE">65%</h3>
+                    <p class="mb-0">Pro</p>
+                </div>
+                <div class="col-4 align-self-center">
+                    <h3 style="color: #7876F5">85%</h3>
+                    <p class="mb-0">Carb</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>
+
+
+<script src="~/js/Home.js"></script>
+
