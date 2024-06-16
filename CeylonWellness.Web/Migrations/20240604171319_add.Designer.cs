@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CeylonWellness.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240601045653_init")]
-    partial class init
+    [Migration("20240604171319_add")]
+    partial class add
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -1,21 +1,38 @@
-﻿
+﻿@{
+    Layout = "~/Views/Shared/_LayoutWelcome.cshtml";
+}
 
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-md-8 my-auto">
-            <p class="text-muted">#1 nutrition tracking app in the island</p>
-            <h1 class="display-2"><strong style="font-weight:600;">Reach your goals <br /> </strong>with <span style="color:#435EBF;">Ceylon Wellness</span> </h1>
+@{
+    ViewData["Title"] = "Welcome";
+}
 
-            <p>Build healthy habits with the all-in-one food, exercise, and calorie tracker.</p>
 
-            <a class="btn btn-primary btn-rounded btn-lg" data-mdb-ripple-init asp-controller="Form" asp-action="FormStepPlaceholder">Start Today &ensp;<span><i class="fa-solid fa-arrow-right"></i></span></a>
+
+<link rel="stylesheet" href="~/css/Welcome.css" asp-append-version="true" />
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-blur-nav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="~/Assets/Logo.svg" height="60" alt="Ceylon Wellness Logo">
+        </a>
+    </div>
+</nav>
+
+<div class="container-fluid bg-image">
+    
+    <div class="container vh-100 d-flex align-items-start">
+        <div class="row marg">
+            <div class="col-md-12 my-auto bg-blur">
+                <p class="text-white opacity-50">#1 nutrition tracking app in the island</p>
+                <h1 class="display-2 text-white"><strong style="font-weight:600;">Reach your goals </strong>with <span style="color:#435EBF; text-align:center;"> <br/>Ceylon Wellness</span> </h1>
+
+                <h5 class="text-white mt-5">Build healthy habits with the all-in-one food, exercise, and calorie tracker.</h5>
+
+                <a class="btn btn-primary btn-rounded btn-lg mt-4" data-mdb-ripple-init asp-controller="Form" asp-action="FormStepPlaceholder">Start Today &ensp;<span><i class="fa-solid fa-arrow-right"></i></span></a>
+            </div>
         </div>
-        <div class="col-md-4">
-            <img src="/Assets/istockphoto-486662770-612x612-removebg-preview.png" style="width:350px;"/>
+
+        <div class="row">
         </div>
     </div>
 
-    <div class="row">
-
-    </div>
 </div>

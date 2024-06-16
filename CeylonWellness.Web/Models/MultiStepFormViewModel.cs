@@ -17,6 +17,8 @@ namespace CeylonWellness.Web.Models
         public string WeeklyGoal { get; set; }
         public double BMI { get; set; }
         public int NoofMealsperDay { get; set; }
+        public Guid goalid {  get; set; }
         public string goal {  get; set; }
+        public DateOnly EndDate { get; set; }
     }
 }

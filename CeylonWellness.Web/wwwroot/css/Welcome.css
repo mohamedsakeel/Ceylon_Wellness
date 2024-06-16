@@ -1,0 +1,44 @@
+﻿
+.bg-image {
+    background-image: url('/Assets/harrydev.go_Create_an_image_featuring_a_healthy_diet_meal_hel_1f166b35-f63e-4414-adfa-73f844a4a6ff_1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.full-width-container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.full-width-row {
+    width: 100%;
+    margin: 0;
+}
+
+.full-width-row img {
+    width: 100%;
+    height: auto;
+}
+
+.bg-blur {
+    background: rgb(18, 18, 18, 0.59);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 20px;
+}
+
+.bg-blur-nav {
+    background: rgb(18, 18, 18, 0.59);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 0 0 0 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.marg {
+    margin-top: 140px;
+}

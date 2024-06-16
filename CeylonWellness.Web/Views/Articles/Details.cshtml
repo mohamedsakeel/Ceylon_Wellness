@@ -1,0 +1,36 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "Article Details";
+}
+
+<h2>Article Details</h2>
+
+<div class="article-content">
+    @Html.Raw(Model)
+</div>
+
+<style>
+    .article-content {
+        padding: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 16px 0;
+    }
+
+    .article-content figure {
+        margin: 0;
+        padding: 0;
+        text-align: center; /* Center-align the image if desired */
+    }
+
+    .article-content figure img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto; /* Center the image within the figure */
+    }
+</style>
+
+<script src="~/js/quiz.js"></script>

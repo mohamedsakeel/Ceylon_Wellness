@@ -1,0 +1,79 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+}
+
+.username{
+    font-size: 16px;
+    font-weight: 500;
+    margin:0;
+}
+
+.det-card {
+    padding: 10px;
+    border: 1px solid #DEF3F0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px #9f9f9f;
+    color: #19318A;
+}
+
+.margin-10{
+    margin-left: 20px;
+}
+
+.half-circle-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
+}
+
+.half-circle-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 210px;
+    height: 250px;
+    background-color: #3498db; /* Set your desired color */
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    background: #DEF3F0;
+    z-index: -1; /* Ensure the pseudo-element stays in the background */
+}
+
+.notice {
+    background: #DEF3F0;
+    padding: 10px;
+    border: 1px solid #6DCDBF;
+    border-radius: 8px;
+    color: #19318A;
+    max-width: 600px;
+    font-size: 14px;
+}
+
+.container-width {
+    max-width: 50%;
+}
+
+.n-circle{
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.txt-gradient {
+    background: linear-gradient(to right, #4D82EF 0%, #B96B9E 54%, #D33535 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width:480px) {
+    .container-width {
+        max-width: 100%;
+    }
+}
+
+

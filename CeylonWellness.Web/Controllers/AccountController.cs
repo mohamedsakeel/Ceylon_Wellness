@@ -43,7 +43,7 @@ namespace CeylonWellness.Web.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl ?? Url.Content("~/"));
+                    return LocalRedirect(returnUrl ?? Url.Content("~/Home"));
                 }
                 else
                 {
@@ -83,7 +83,9 @@ namespace CeylonWellness.Web.Controllers
 
                     // Otherwise, log the user in directly
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(Url.Content("~/"));
+
+
+                    return RedirectToAction("SubmitForm", "Form", new { userid = user.Id });
                 }
                 AddErrors(result);
             }

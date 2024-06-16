@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - Reach your goals with Ceylon Wellness</title>
+
+    <link rel="icon" type="image/x-icon" href="~/Assets/Logo.svg" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.min.css"
+          rel="stylesheet" />
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CeylonWellness.Web.styles.css" asp-append-version="true" />
+
+    <style>
+        .footer {
+            background-color: #f8f9fa;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            white-space: nowrap;
+            line-height: 30px;
+        }
+
+        .footer .nav-item {
+            flex: 1;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .footer .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer .nav-link .icon {
+            font-size: 20px;
+        }
+
+        .footer .nav-link .text {
+            font-size: 14px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @* Footer Mobile Button Navigation *@
+    <footer class="border-top footer">
+        <div class="container d-flex justify-content-around">
+            <a class="nav-item nav-link" asp-controller="Home" asp-action="Index">
+                <i class="fas fa-home icon"></i>
+                <span class="text">Home</span>
+            </a>
+            <a class="nav-item nav-link" href="#meal">
+                <i class="fas fa-utensils icon"></i>
+                <span class="text">Meal</span>
+            </a>
+            <a class="nav-item nav-link" asp-controller="FAQ" asp-action="Index">
+                <i class="fas fa-question-circle icon"></i>
+                <span class="text">FAQ</span>
+            </a>
+        </div>
+    </footer>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.2.0/mdb.umd.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
