@@ -207,42 +207,6 @@ function showErrorTooltip(element, message) {
     }, 2000); // Hide tooltip after 2 seconds
 }
 
-//function NWHVerification(partialName) {
-//    const neckInput = document.getElementById("neck");
-//    const waistInput = document.getElementById("waist");
-//    const hipInput = document.getElementById("hip");
-
-//    const neck = neckInput.value;
-//    const waist = waistInput.value;
-//    const hip = hipInput ? hipInput.value : null;
-
-//    const selectedGender = sessionStorage.getItem('selectedGender');
-
-//    let isValid = true;
-
-//    // Validate Neck
-//    if (neck.trim() === "" || neck <= 0) {
-//        showErrorTooltip(neckInput, "Please enter a valid neck measurement");
-//        isValid = false;
-//    }
-
-//    // Validate Waist
-//    if (waist.trim() === "" || waist <= 0) {
-//        showErrorTooltip(waistInput, "Please enter a valid waist measurement");
-//        isValid = false;
-//    }
-
-
-//    // Validate Hip if gender is female
-//    if (selectedGender === 'Female' && (hip.trim() === "" || hip <= 0)) {
-//        showErrorTooltip(hipInput, "Please enter a valid hip measurement");
-//        isValid = false;
-//    }
-
-//    if (isValid) {
-//        loadNextStep(partialName);
-//    }
-//}
 function NWHVerification(partialName) {
     const neckInput = document.getElementById("neck");
     const waistInput = document.getElementById("waist");
@@ -428,7 +392,19 @@ function selectGoal(button) {
     function selectBarriers(button) {
         // Toggle 'btn-selected' class for the clicked button
         button.classList.toggle('btn-selected');
-    }
+}
+function selectWheyproteinpref(button) {
+    const ActivityLevel = button.getAttribute('data-pref');
+    document.getElementById('wheyproteinpref').value = wheyproteinpref;
+    document.getElementById('wheyproteinprefs').value = wheyproteinpref;
+
+    // Remove 'selected' class from all buttons
+    document.querySelectorAll('.wheyproteinpref').forEach(btn => btn.classList.remove('btn-selected'));
+
+    // Add 'selected' class to the clicked button
+    button.classList.add('btn-selected');
+
+}
 
     function selectDiatpref(button) {
         const goalValue = button.getAttribute('data-pref');
@@ -822,6 +798,7 @@ function populateMealOptions() {
     }
 
 }
+
 
 
 
