@@ -5,14 +5,16 @@
         <input type="hidden" asp-for="mealintakepref" id="mealintakepref" />
         <h2 class="text-primary mt-3 mb-4">How many meals would you like to take per day?</h2>
         <div id="mealOptions" class="d-flex flex-column align-items-center mt-4">
-            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref twomeal" data-pref="budgetPlan" onclick="selectMealinpref(this)">2 Main Meals</button>
-            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemeal" data-pref="lowCarb" onclick="selectMealinpref(this)">3 Main Meals</button>
-            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealonesnack" data-pref="balanced" onclick="selectMealinpref(this)">3 Main Meals with 1 snack</button>
-            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealtwosnack" data-pref="highProtein" onclick="selectMealinpref(this)">3 Main Meals with 2 snacks</button>
-            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealthreesnack" data-pref="highProtein" onclick="selectMealinpref(this)">3 Main Meals with 3 snacks</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref twomeal" data-pref="twomeal" onclick="selectMealinpref(this)">2 Main Meals</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemeal" data-pref="threemeal" onclick="selectMealinpref(this)">3 Main Meals</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealonesnack" data-pref="threemealonesnack" onclick="selectMealinpref(this)">3 Main Meals with 1 snack</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealtwosnack" data-pref="threemealtwosnack" onclick="selectMealinpref(this)">3 Main Meals with 2 snacks</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealintakepref threemealthreesnack" data-pref="threemealthreesnack" onclick="selectMealinpref(this)">3 Main Meals with 3 snacks</button>
 
         </div>
-
+        <p class="notice mt-2">
+            <strong>Note: </strong> Choose the number of meals that best fits your schedule. A higher number of meals can be beneficial for achieving various weight goals, as it helps manage hunger and maintain energy levels throughout the day.
+        </p>
         <div class="d-flex justify-content-center fixed-bottom mt-5 mb-4">
             <div class="d-flex">
                 <button type="button" onclick="loadNextStep('Steps/_SelectMacroType')" class="btn btn-secondary btn-lg mx-2">Previous</button>

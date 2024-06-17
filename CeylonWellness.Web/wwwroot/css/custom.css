@@ -80,14 +80,15 @@
     max-width: 300px; /* Set the maximum width for the cards */
     margin-bottom: 20px;
     background: #EAECFB;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
-.age-group-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+    .age-group-card img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        display: block;
+    }
 
 .age-group-card .age-group-label {
     position: absolute;

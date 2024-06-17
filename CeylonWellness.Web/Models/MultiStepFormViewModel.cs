@@ -31,6 +31,7 @@ namespace CeylonWellness.Web.Models
 
         public string wheyproteinpref { get; set; }
         public string mealintakepref { get; set; }
+        public string mealdistributionpref { get; set; }
         public string macropref { get; set; }
         public string MealPreference { get; set; }
         public DateOnly EndDate { get; set; }

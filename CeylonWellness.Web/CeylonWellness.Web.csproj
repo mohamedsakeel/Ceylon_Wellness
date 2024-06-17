@@ -32,8 +32,4 @@
     <ProjectReference Include="..\CeylonWellness.Repositories\CeylonWellness.Repositories.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\Assets\" />
-  </ItemGroup>
-
 </Project>

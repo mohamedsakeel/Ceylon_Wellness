@@ -36,6 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('hip').style.display = 'block';
     }
 });
+// JavaScript to show image and hide it after 5 seconds
+document.addEventListener("DOMContentLoaded", function () {
+    // Show the image initially
+    document.getElementById('imageContainer').classList.remove('d-none');
+
+    // Set timeout to hide the image after 5 seconds
+    setTimeout(function () {
+        document.getElementById('imageContainer').classList.add('d-none');
+    }, 15000); // 5000 milliseconds = 5 seconds
+});
+
 function loadNextStep(partialName) {
     // Serialize form data from the current step
     var data = $('#multistepform').serialize();
@@ -65,37 +76,13 @@ function loadNextStep(partialName) {
         }
     });
 }
-
-//function ageVerification(partialName) {
-//    const ageInput = document.getElementById("Age");
-//    const age = ageInput.value;
-
-//    // Age Validation
-//    if (age.trim() === "" || age <= 0) {
-//        // Create a Bootstrap tooltip
-//        let tooltip = new mdb.Tooltip(ageInput, {
-//            title: "Please enter a valid age",
-//            placement: 'bottom'
-//        });
-//        tooltip.show();
-
-//        // Optionally clear input and hide tooltip after a delay
-//        setTimeout(() => {
-//            ageInput.value = '';
-//            tooltip.hide();
-//        }, 2000); // Hide tooltip after 2 seconds
-
-//        return; // Don't continue if invalid
-//    }
-//    loadNextStep(partialName);
-//}
 function ageVerification(partialName) {
     const ageInput = document.getElementById("Age");
     const age = parseInt(ageInput.value);
 
     document.getElementById("AgeBMR").value = age;
     // Age Validation
-    if (isNaN(age) || age < 18 || age > 50) {
+    if (isNaN(age) || age < 18 || age > 45) {
         // Create a Bootstrap tooltip
         let tooltip = new mdb.Tooltip(ageInput, {
             title: "Age must be between 18 and 50",
@@ -122,57 +109,6 @@ function setGender(gender) {
     loadNextStep('Steps/_setAge');
 
 }
-
-//function WHVerification(partialName) {
-//    const weightInput = document.getElementById("weight");
-//    const heightInput = document.getElementById("height");
-
-//    const weight = weightInput.value;
-//    const height = heightInput.value;
-
-//    let bmi = calculateBMI(weight, height);
-
-//    document.getElementById('bmi').value = bmi;
-
-//    if (weight.trim() === "" || weight <= 0) {
-//        // Create a Bootstrap tooltip for weight input
-//        let weightTooltip = new mdb.Tooltip(weightInput, {
-//            title: "Please enter a valid weight",
-//            placement: 'bottom'
-//        });
-//        weightTooltip.show();
-
-//        // Optionally clear weight input and hide tooltip after a delay
-//        setTimeout(() => {
-//            //weightInput.value = '';
-//            weightTooltip.hide();
-//        }, 2000); // Hide tooltip after 2 seconds
-
-//        return; // Don't continue if weight is invalid
-//    }
-
-//    if (height.trim() === "" || height <= 0) {
-//        // Create a Bootstrap tooltip for height input
-//        let heightTooltip = new mdb.Tooltip(heightInput, {
-//            title: "Please enter a valid height",
-//            placement: 'bottom'
-//        });
-//        heightTooltip.show();
-
-//        // Optionally clear height input and hide tooltip after a delay
-//        setTimeout(() => {
-//            //heightInput.value = '';
-//            heightTooltip.hide();
-//        }, 2000); // Hide tooltip after 2 seconds
-
-//        return; // Don't continue if height is invalid
-//    }
-
-//    document.getElementById('weightss').value = weight;
-
-//    // If both weight and height are valid, proceed to the next step
-//    loadNextStep(partialName);
-//}
 function WHVerification(partialName) {
     const weightInput = document.getElementById("weight");
     const heightInput = document.getElementById("height");
@@ -180,13 +116,13 @@ function WHVerification(partialName) {
     const weight = parseFloat(weightInput.value);
     const height = parseFloat(heightInput.value);
 
-    if (isNaN(weight) || weight < 15 || weight > 300) {
-        showErrorTooltip(weightInput, "Weight should be between 15 and 300 kg");
+    if (isNaN(weight) || weight < 30 || weight > 300) {
+        showErrorTooltip(weightInput, "Weight should be between 30 and 300 kg");
         return; // Don't continue if weight is invalid
     }
 
-    if (isNaN(height) || height < 100 || height > 300) {
-        showErrorTooltip(heightInput, "Height should be between 100 and 300 cm");
+    if (isNaN(height) || height < 120 || height > 250) {
+        showErrorTooltip(heightInput, "Height should be between 120 and 250 cm");
         return; // Don't continue if height is invalid
     }
     document.getElementById('WeightBMR').value = weight;
@@ -375,34 +311,6 @@ function TargetWeightVerification(partialName) {
     loadNextStep(partialName);
 }
 
-//goal update
-//function selectGoal(button) {
-//    const goalValue = button.getAttribute('data-goal');
-//    document.getElementById('goal').value = goalValue;
-//    document.getElementById('goals').value = goalValue;
-
-//    // Remove 'selected' class from all buttons
-//    document.querySelectorAll('.goal').forEach(btn => btn.classList.remove('btn-selected'));
-
-//    // Add 'selected' class to the clicked button
-//    button.classList.add('btn-selected');
-//    if (goalValue == "Maintain Weight") {
-//        var div = document.getElementById('targetweight');
-//        var divv = document.getElementById('hidethis');
-//        div.classList.add('hide');
-//        divv.classList.add('hide');
-
-//        const weight = document.getElementById('weightss').value;
-//        document.getElementById('targetweight').value = weight;
-
-//    }
-//    else {
-//        var div = document.getElementById('targetweight');
-//        var divv = document.getElementById('hidethis');
-//        div.classList.remove('hide');
-//        divv.classList.remove('hide');
-//    }
-//}
 function selectGoal(button) {
     const goalValue = button.getAttribute('data-goal');
     document.getElementById('goal').value = goalValue;
@@ -630,6 +538,17 @@ function selectDiatpref(button) {
     button.classList.add('btn-selected');
    
 }
+function selectMealDistribution(button) {
+    const prefValue = button.getAttribute('data-pref');
+    document.getElementById('mealdistributionpref').value = prefValue;
+    document.getElementById('mealdistributionprefs').value = prefValue;
+    // Remove 'selected' class from all buttons
+    document.querySelectorAll('.mealdistributionpref').forEach(btn => btn.classList.remove('btn-selected'));
+
+    // Add 'selected' class to the clicked button
+    button.classList.add('btn-selected');
+
+}
 function handleNextStep() {
     // Check if a dietary preference is selected
     const selectedDiat = document.getElementById('Diatprefs').value;
@@ -682,31 +601,36 @@ function populateMacroOptions() {
     }
     console.log(goal)
     
-    
+    if (selectedDiet === 'Non Vegetarian') {
+        if (goal == 'Lose Weight') {
+            showOption('budgetPlan');
+            showOption('lowCarb');
+            showOption('balanced');
+            showOption('highProtein');
+        } else if (goal == 'Maintain Weight') {
+            showOption('budgetPlan');
+            hideOption('lowCarb');
+            showOption('balanced');
+            showOption('highProtein');
+        } else if (goal == 'Gain Weight') {
+            console.log("Gain weight is selected")
+            showOption('budgetPlan');
+            hideOption('lowCarb'); // Hide 'lowCarb' option when gaining weight
+            showOption('balanced');
+            showOption('highProtein');
+        } else {
+            console.error('Invalid goal:', goal);
+            // show all options or hide all options
+        }
+    }
     // Show or hide options based on the selected goal using if-else statements
-    if (goal == 'Lose Weight') {
-        showOption('budgetPlan');
-        showOption('lowCarb');
-        showOption('balanced');
-        showOption('highProtein');
-    } else if (goal == 'Maintain Weight') {
-        showOption('budgetPlan');
-        hideOption('lowCarb');
-        showOption('balanced');
-        showOption('highProtein');
-    } else if (goal == 'Gain Weight') {
-        console.log("Gain weight is selected")
+    
+    // Auto-select 'Value Protein Plan (Budget plan)' if diet is 'Vegetarian'
+    else if (selectedDiet === 'Vegetarian') {
         showOption('budgetPlan');
         hideOption('lowCarb'); // Hide 'lowCarb' option when gaining weight
-        showOption('balanced');
-        showOption('highProtein');
-    } else {
-        console.error('Invalid goal:', goal);
-        // show all options or hide all options
-    }
-    // Auto-select 'Value Protein Plan (Budget plan)' if diet is 'Vegetarian'
-    if (selectedDiet === 'Vegetarian') {
-        selectOption('budgetPlan');
+        hideOption('balanced');
+        hideOption('highProtein');
     }
     
 }
@@ -719,8 +643,8 @@ function handleMacroNextStep() {
         if (selectedDiat === 'Non Vegetarian') {
             loadNextStep('Steps/_SelectMacroType'); // Load DairyProductsEggs for vegetarians
         } else if(selectedDiat === 'Vegetarian')  {
-            loadNextStep('Steps/_ActivityLevel'); // Load MeatPref for non-vegetarians
-            //loadNextStep('Steps/_SelectMacroType');
+           // loadNextStep('Steps/_ActivityLevel'); // Load MeatPref for non-vegetarians
+            loadNextStep('Steps/_SelectMacroType');
         }
     } else {
         alert('Please select a diet');
@@ -867,6 +791,73 @@ function populateMealOptions() {
 
 }
 
+//function populateMealDistribution() {
+//    const selectedMealCount = document.getElementById('mealintakeprefs').value;
+//    console.log(selectedMealCount)
+//    if (!selectedMealCount) {
+//        console.error('selectedMealCount element not found!');
+//        return;
+//    }
+
+//    // Helper functions to show or hide options
+//    function showOption(optionClass) {
+//        const elements = document.getElementsByClassName(optionClass);
+//        for (let i = 0; i < elements.length; i++) {
+//            elements[i].classList.remove('hide'); // Adjust display style as needed
+//        }
+//    }
+
+//    function hideOption(optionClass) {
+//        const elements = document.getElementsByClassName(optionClass);
+//        for (let i = 0; i < elements.length; i++) {
+//            elements[i].classList.add('hide');
+//        }
+//    }
+
+
+//    // Show or hide options based on the selected goal using if-else statements
+//    if (selectedMealCount == 'twomeal') {
+//        showOption('breakfast');
+//        hideOption('lunch');
+//        showOption('dinner');        
+//        hideOption('snackone');
+//        hideOption('snacktwo');
+//        hideOption('snackthree');
+//    } else if (selectedMealCount == 'threemeal') {
+//        showOption('breakfast');
+//        showOption('lunch');
+//        showOption('dinner');
+//        hideOption('snackone');
+//        hideOption('snacktwo');
+//        hideOption('snackthree');
+//    } else if (selectedMealCount == 'threemealonesnack') {
+//        showOption('breakfast');
+//        showOption('lunch');
+//        showOption('dinner');
+//        showOption('snackone');
+//        hideOption('snacktwo');
+//        hideOption('snackthree');
+//    } else if (selectedMealCount == 'threemealtwosnack') {
+//        showOption('breakfast');
+//        showOption('lunch');
+//        showOption('dinner');
+//        showOption('snackone');
+//        showOption('snacktwo');
+//        hideOption('snackthree');
+//    } else if (selectedMealCount == 'threemealthreesnack') {
+//        showOption('breakfast');
+//        showOption('lunch');
+//        showOption('dinner');
+//        showOption('snackone');
+//        showOption('snacktwo');
+//        showOption('snackthree');
+//    } 
+//    else {
+//        console.error('Invalid Meal count:',);
+//        // show all options or hide all options
+//    }
+
+//}
 function calculateCalorieNeeds(gender, weight, height, age, activityLevel) {
     let BMR;
 
