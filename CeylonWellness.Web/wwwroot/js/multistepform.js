@@ -36,6 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('hip').style.display = 'block';
     }
 });
+// JavaScript to show image and hide it after 5 seconds
+document.addEventListener("DOMContentLoaded", function () {
+    // Show the image initially
+    document.getElementById('imageContainer').classList.remove('d-none');
+
+    // Set timeout to hide the image after 5 seconds
+    setTimeout(function () {
+        document.getElementById('imageContainer').classList.add('d-none');
+    }, 15000); // 5000 milliseconds = 5 seconds
+});
+
 function loadNextStep(partialName) {
     // Serialize form data from the current step
     var data = $('#multistepform').serialize();
