@@ -1,0 +1,37 @@
+﻿@model CeylonWellness.Web.Models.MultiStepFormViewModel
+
+<div class="container container-width">
+    <div class="d-flex flex-column align-items-center">
+        <input type="hidden" asp-for="mealdistributionpref" id="mealdistributionpref" />
+        <h2 class="text-primary mt-3 mb-2">Recommended Meal Variations</h2>
+        <div id="mealDistributedOptions" class="d-flex flex-column align-items-center mt-4">
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealdistributionpref breakfast" data-pref="dietplan1" onclick="selectMealDistribution(this)">Diet Plan 1</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealdistributionpref lunch" data-pref="dietplan2" onclick="selectMealDistribution(this)">Diet Plan 2</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealdistributionpref dinner" data-pref="dietplan3" onclick="selectMealDistribution(this)">Diet Plan 3</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealdistributionpref snackone" data-pref="dietplan4" onclick="selectMealDistribution(this)">Diet Plan 4</button>
+@*             <button type="button" class="btn btn-outline-primary gender-btn txt mealdistributionpref snacktwo" data-pref="snacktwo" onclick="selectMealDistribution(this)">Snack 2</button>
+            <button type="button" class="btn btn-outline-primary gender-btn txt mealdistributionpref snackthree" data-pref="snackthree" onclick="selectMealDistribution(this)">Snack 3</button>
+ *@
+        </div>
+       @*  <p class="notice mt-2">
+            <strong>Note: </strong> Choose the number of meals that best fits your schedule. A higher number of meals can be beneficial for achieving various weight goals, as it helps manage hunger and maintain energy levels throughout the day.
+        </p> *@
+        <div class="d-flex justify-content-center fixed-bottom mt-5 mb-4">
+            <div class="d-flex">
+                <button type="button" onclick="loadNextStep('Steps/_SelectBarrier')" class="btn btn-secondary btn-lg mx-2">Previous</button>
+                <button type="button" onclick="loadNextStep('Steps/_BMISummary')" class="btn btn-primary btn-lg mx-2">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* <script>
+
+    $(document).ready(function () {
+        populateMealDistribution(); // Initial call when the document is ready
+
+        // Assuming you load the partial view via AJAX, you need to re-apply the function
+        $('#mealDistributedOptions').on('load', function () {
+            populateMealDistribution();
+        });
+    });
+</script> *@

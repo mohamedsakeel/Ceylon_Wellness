@@ -525,6 +525,17 @@ function selectDiatpref(button) {
     button.classList.add('btn-selected');
    
 }
+function selectMealDistribution(button) {
+    const prefValue = button.getAttribute('data-pref');
+    document.getElementById('mealdistributionpref').value = prefValue;
+    document.getElementById('mealdistributionprefs').value = prefValue;
+    // Remove 'selected' class from all buttons
+    document.querySelectorAll('.mealdistributionpref').forEach(btn => btn.classList.remove('btn-selected'));
+
+    // Add 'selected' class to the clicked button
+    button.classList.add('btn-selected');
+
+}
 function handleNextStep() {
     // Check if a dietary preference is selected
     const selectedDiat = document.getElementById('Diatprefs').value;
@@ -767,6 +778,73 @@ function populateMealOptions() {
 
 }
 
+//function populateMealDistribution() {
+//    const selectedMealCount = document.getElementById('mealintakeprefs').value;
+//    console.log(selectedMealCount)
+//    if (!selectedMealCount) {
+//        console.error('selectedMealCount element not found!');
+//        return;
+//    }
+
+//    // Helper functions to show or hide options
+//    function showOption(optionClass) {
+//        const elements = document.getElementsByClassName(optionClass);
+//        for (let i = 0; i < elements.length; i++) {
+//            elements[i].classList.remove('hide'); // Adjust display style as needed
+//        }
+//    }
+
+//    function hideOption(optionClass) {
+//        const elements = document.getElementsByClassName(optionClass);
+//        for (let i = 0; i < elements.length; i++) {
+//            elements[i].classList.add('hide');
+//        }
+//    }
+
+
+//    // Show or hide options based on the selected goal using if-else statements
+//    if (selectedMealCount == 'twomeal') {
+//        showOption('breakfast');
+//        hideOption('lunch');
+//        showOption('dinner');        
+//        hideOption('snackone');
+//        hideOption('snacktwo');
+//        hideOption('snackthree');
+//    } else if (selectedMealCount == 'threemeal') {
+//        showOption('breakfast');
+//        showOption('lunch');
+//        showOption('dinner');
+//        hideOption('snackone');
+//        hideOption('snacktwo');
+//        hideOption('snackthree');
+//    } else if (selectedMealCount == 'threemealonesnack') {
+//        showOption('breakfast');
+//        showOption('lunch');
+//        showOption('dinner');
+//        showOption('snackone');
+//        hideOption('snacktwo');
+//        hideOption('snackthree');
+//    } else if (selectedMealCount == 'threemealtwosnack') {
+//        showOption('breakfast');
+//        showOption('lunch');
+//        showOption('dinner');
+//        showOption('snackone');
+//        showOption('snacktwo');
+//        hideOption('snackthree');
+//    } else if (selectedMealCount == 'threemealthreesnack') {
+//        showOption('breakfast');
+//        showOption('lunch');
+//        showOption('dinner');
+//        showOption('snackone');
+//        showOption('snacktwo');
+//        showOption('snackthree');
+//    } 
+//    else {
+//        console.error('Invalid Meal count:',);
+//        // show all options or hide all options
+//    }
+
+//}
 function calculateCalorieNeeds(gender, weight, height, age, activityLevel) {
     let BMR;
 
