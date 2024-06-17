@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@{
+    ViewData["Title"] = "Details Page";
+}
+
+
+@model IEnumerable<MealCardViewModel>
+
+<div class="container">
+    <h1 class="mt-4">Daily Meal Plan</h1>
+    @foreach (var meal in Model)
+    {
+        <div class="card p-3 my-3 mt-4">
+            <h3 class="text-primary">@meal.MealType</h3>
+            <h5>@meal.MealName</h5>
+            <h4>Ingredients</h4>
+            @foreach (var item in meal.Ingredients)
+            {
+                <p>@item</p>
+            }
+            
+            <h4>Preparation</h4>
+            <p>@meal.Preparation</p>
+            <h4>Nutrition Facts</h4>
+            <p>@meal.NutritionFacts</p>
+        </div>
+    }
+</div>

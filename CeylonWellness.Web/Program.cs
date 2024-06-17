@@ -2,6 +2,7 @@ using CeylonWellness.Domain.Models;
 using CeylonWellness.Repositories.Repositories;
 using CeylonWellness.Web.Data;
 using CeylonWellness.Web.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,10 @@ builder.Services.AddScoped<IFAQRepository, FAQRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddProgressiveWebApp();
 builder.Services.AddSingleton<SanityService>();
+builder.Services.AddHttpClient();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

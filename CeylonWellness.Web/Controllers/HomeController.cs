@@ -1,3 +1,4 @@
+using CeylonWellness.Domain.Models;
 using CeylonWellness.Web.Data;
 using CeylonWellness.Web.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -82,10 +83,69 @@ namespace CeylonWellness.Web.Controllers
             return View();
         }
 
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Details(string meal)
+        {
+            var meals = new List<Meals>()
+            {
+                // Create Meal objects with details for each meal
+                new Meals
+                  {
+                    MealName = "Whey Protein Smoothie with Banana and Peanut Butter",
+                    Ingredients = new List<string>() {"1 scoop whey protein powder", "1 large banana", "2 tablespoons peanut butter", "1 cup whole milk", "1 tablespoon honey"},
+                    Preparation = "Add all ingredients to a blender. Blend until smooth. Serve immediately.",
+                    NutritionFacts = "Protein: 24g, Fat: 20.2g, Carbs: 55.5g",
+                    MealType = "Snack 1"
+                  },
+                  // Add Breakfast meal
+                  new Meals
+                  {
+                    MealName = "Egg Hoppers with Coconut Sambol and Dhal Curry",
+                    Ingredients = new List<string>() {"2 egg hoppers", "1/2 cup coconut sambol", "1/2 cup dhal curry"},
+                    Preparation = "Prepare egg hoppers using a hopper pan. For coconut sambol, mix grated coconut, chopped onions, green chilies, lime juice, and salt. For dhal curry, cook red lentils with turmeric, onions, tomatoes, and coconut milk. Serve egg hoppers with coconut sambol and dhal curry.",
+                    NutritionFacts = "Protein: 24g, Fat: 16.7g, Carbs: 63.5g",
+                    MealType = "Breakfast"
+                  },
+                  // Add Lunch meal
+                  new Meals
+                  {
+                    MealName = "Red Nadu Rice with Chicken Curry, Leeks Curry, Carrot Curry, and Gotukola Mallum",
+                    Ingredients = new List<string>() {"1 cup cooked red nadu rice", "200g chicken breast (for chicken curry)", "1 cup leeks curry", "1 cup carrot curry", "1/2 cup gotukola mallum"},
+                    Preparation = "Cook red nadu rice as per instructions. For chicken curry, cook chicken with spices, coconut milk, and curry leaves. For leeks curry, sauté leeks with onions, mustard seeds, and turmeric. For carrot curry, cook carrots with onions, green chilies, and coconut milk. For gotukola mallum, mix chopped gotukola with grated coconut, onions, and lime juice. Serve all together.",
+                    NutritionFacts = "Protein: 24g, Fat: 25g, Carbs: 107.2g",
+                    MealType = "Lunch"
+                  },
+                  // Add Dinner meal
+                  new Meals
+                  {
+                    MealName = "Baked Fish with Brown Rice, Green Beans, and Pumpkin Curry",
+                    Ingredients = new List<string>() {"200g fish fillet (e.g., mackerel)", "1 cup cooked brown rice", "1 cup steamed green beans", "1 cup pumpkin curry"},
+                    Preparation = "Season fish fillet with salt, pepper, and lemon juice, then bake at 375°F (190°C) for 20-25 minutes. Cook brown rice as per instructions. Steam green beans until tender. For pumpkin curry, cook pumpkin with onions, green chilies, and coconut milk. Serve baked fish with brown rice, green beans, and pumpkin curry.",
+                    NutritionFacts = "Protein: 24g, Fat: 25g, Carbs: 107.2g",
+                    MealType = "Dinner"
+                  }
+                // ... Add similar entries for other meals
+            };
+
+            var mealCardViewModels = meals.Select(meal => new MealCardViewModel
+            {
+                MealName = meal.MealName,
+                // No image URL for hardcoded data (optional)
+                MealType = meal.MealType, 
+                Ingredients = meal.Ingredients, // Join for HTML display
+                Preparation = meal.Preparation,
+                NutritionFacts = meal.NutritionFacts
+                
+            });
+
+            return View(mealCardViewModels);
         }
     }
 }
