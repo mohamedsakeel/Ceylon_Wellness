@@ -65,30 +65,6 @@ function loadNextStep(partialName) {
         }
     });
 }
-
-//function ageVerification(partialName) {
-//    const ageInput = document.getElementById("Age");
-//    const age = ageInput.value;
-
-//    // Age Validation
-//    if (age.trim() === "" || age <= 0) {
-//        // Create a Bootstrap tooltip
-//        let tooltip = new mdb.Tooltip(ageInput, {
-//            title: "Please enter a valid age",
-//            placement: 'bottom'
-//        });
-//        tooltip.show();
-
-//        // Optionally clear input and hide tooltip after a delay
-//        setTimeout(() => {
-//            ageInput.value = '';
-//            tooltip.hide();
-//        }, 2000); // Hide tooltip after 2 seconds
-
-//        return; // Don't continue if invalid
-//    }
-//    loadNextStep(partialName);
-//}
 function ageVerification(partialName) {
     const ageInput = document.getElementById("Age");
     const age = parseInt(ageInput.value);
@@ -324,34 +300,6 @@ function TargetWeightVerification(partialName) {
     loadNextStep(partialName);
 }
 
-//goal update
-//function selectGoal(button) {
-//    const goalValue = button.getAttribute('data-goal');
-//    document.getElementById('goal').value = goalValue;
-//    document.getElementById('goals').value = goalValue;
-
-//    // Remove 'selected' class from all buttons
-//    document.querySelectorAll('.goal').forEach(btn => btn.classList.remove('btn-selected'));
-
-//    // Add 'selected' class to the clicked button
-//    button.classList.add('btn-selected');
-//    if (goalValue == "Maintain Weight") {
-//        var div = document.getElementById('targetweight');
-//        var divv = document.getElementById('hidethis');
-//        div.classList.add('hide');
-//        divv.classList.add('hide');
-
-//        const weight = document.getElementById('weightss').value;
-//        document.getElementById('targetweight').value = weight;
-
-//    }
-//    else {
-//        var div = document.getElementById('targetweight');
-//        var divv = document.getElementById('hidethis');
-//        div.classList.remove('hide');
-//        divv.classList.remove('hide');
-//    }
-//}
 function selectGoal(button) {
     const goalValue = button.getAttribute('data-goal');
     document.getElementById('goal').value = goalValue;
@@ -629,31 +577,36 @@ function populateMacroOptions() {
     }
     console.log(goal)
     
-    
+    if (selectedDiet === 'Non Vegetarian') {
+        if (goal == 'Lose Weight') {
+            showOption('budgetPlan');
+            showOption('lowCarb');
+            showOption('balanced');
+            showOption('highProtein');
+        } else if (goal == 'Maintain Weight') {
+            showOption('budgetPlan');
+            hideOption('lowCarb');
+            showOption('balanced');
+            showOption('highProtein');
+        } else if (goal == 'Gain Weight') {
+            console.log("Gain weight is selected")
+            showOption('budgetPlan');
+            hideOption('lowCarb'); // Hide 'lowCarb' option when gaining weight
+            showOption('balanced');
+            showOption('highProtein');
+        } else {
+            console.error('Invalid goal:', goal);
+            // show all options or hide all options
+        }
+    }
     // Show or hide options based on the selected goal using if-else statements
-    if (goal == 'Lose Weight') {
-        showOption('budgetPlan');
-        showOption('lowCarb');
-        showOption('balanced');
-        showOption('highProtein');
-    } else if (goal == 'Maintain Weight') {
-        showOption('budgetPlan');
-        hideOption('lowCarb');
-        showOption('balanced');
-        showOption('highProtein');
-    } else if (goal == 'Gain Weight') {
-        console.log("Gain weight is selected")
+    
+    // Auto-select 'Value Protein Plan (Budget plan)' if diet is 'Vegetarian'
+    else if (selectedDiet === 'Vegetarian') {
         showOption('budgetPlan');
         hideOption('lowCarb'); // Hide 'lowCarb' option when gaining weight
-        showOption('balanced');
-        showOption('highProtein');
-    } else {
-        console.error('Invalid goal:', goal);
-        // show all options or hide all options
-    }
-    // Auto-select 'Value Protein Plan (Budget plan)' if diet is 'Vegetarian'
-    if (selectedDiet === 'Vegetarian') {
-        selectOption('budgetPlan');
+        hideOption('balanced');
+        hideOption('highProtein');
     }
     
 }
@@ -666,8 +619,8 @@ function handleMacroNextStep() {
         if (selectedDiat === 'Non Vegetarian') {
             loadNextStep('Steps/_SelectMacroType'); // Load DairyProductsEggs for vegetarians
         } else if(selectedDiat === 'Vegetarian')  {
-            loadNextStep('Steps/_ActivityLevel'); // Load MeatPref for non-vegetarians
-            //loadNextStep('Steps/_SelectMacroType');
+           // loadNextStep('Steps/_ActivityLevel'); // Load MeatPref for non-vegetarians
+            loadNextStep('Steps/_SelectMacroType');
         }
     } else {
         alert('Please select a diet');
