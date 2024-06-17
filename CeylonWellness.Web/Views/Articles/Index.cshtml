@@ -1,35 +1,84 @@
 ﻿@model CeylonWellness.Domain.Models.ArticleViewModel
 
+@{
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@{
+    ViewData["Title"] = "Domain Knowledge";
+}
 
-<h2>Articles</h2>
 
-<div class="card-container">
-    @foreach (var article in Model.Articles)
-    {
-        <div class="card">
-            <h3>@article.Title</h3>
-            <p>@article.Subtitle</p>
-            <a href="@Url.Action("Details", new { slug = article.slug })">Read More</a>
+<link rel="stylesheet" href="/css/Article.css" />
+
+<div class="row mb-4 bg-image">
+    <div class="col-12 py-5 px-3">
+        <h1 class="text-white">Welcome to the Health and Wellness Knowledge Hub</h1>
+        <p class="text-white">This knowledge hub contains articles based on the berriers one faces when following a diat plan and how to overcome those challenges.</p>
+    </div>
+</div>
+<div class="container">
+    
+    <div class="col-12">
+
+        <h2 class="mt-5">Category : Sleeping Problem</h2>
+
+        <div class="card-container">
+            @foreach (var article in Model.SleepProblem)
+            {
+                <div class="card">
+                    <h3>@article.Title</h3>
+                    <p>@article.Subtitle</p>
+                    <a href="@Url.Action("Details", new { slug = article.slug })">Read More</a>
+                </div>
+            }
         </div>
-    }
+
+        <h2 class="mt-5">Category : Lack of Motivation</h2>
+
+        <div class="card-container">
+            @foreach (var article in Model.LackMotivation)
+            {
+                <div class="card">
+                    <h3>@article.Title</h3>
+                    <p>@article.Subtitle</p>
+                    <a href="@Url.Action("Details", new { slug = article.slug })">Read More</a>
+                </div>
+            }
+        </div>
+
+        <h2 class="mt-5">Category : Emotional Eating</h2>
+
+        <div class="card-container">
+            @foreach (var article in Model.EmotionalEating)
+            {
+                <div class="card">
+                    <h3>@article.Title</h3>
+                    <p>@article.Subtitle</p>
+                    <a href="@Url.Action("Details", new { slug = article.slug })">Read More</a>
+                </div>
+            }
+        </div>
+
+        <h2 class="mt-5">All Articles</h2>
+
+        <div class="card-container">
+            @foreach (var article in Model.Articles)
+            {
+                <div class="card">
+                    <h3>@article.Title</h3>
+                    <p>@article.Subtitle</p>
+                    <a href="@Url.Action("Details", new { slug = article.slug })">Read More</a>
+                </div>
+            }
+        </div>
+        
+    </div>
+    
+</div>
+<div class="container">
+    <p class="text-center">All Rights Reserved &copy; 2024</p>
 </div>
 
-<style>
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
 
-    .card {
-        border: 1px solid #ccc;
-        padding: 16px;
-        margin: 8px;
-        width: 300px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-    }
 
-        .card h3 {
-            margin-top: 0;
-        }
-</style>
+

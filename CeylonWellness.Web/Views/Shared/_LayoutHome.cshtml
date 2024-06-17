@@ -20,35 +20,52 @@
     <link rel="stylesheet" href="~/CeylonWellness.Web.styles.css" asp-append-version="true" />
 
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+        }
+
         .footer {
             background-color: #f8f9fa;
-            position: absolute;
+            position: fixed;
             bottom: 0;
             width: 100%;
             white-space: nowrap;
             line-height: 30px;
+            border-top: 1px solid #dee2e6;
+            z-index: 1030;
         }
 
-        .footer .nav-item {
-            flex: 1;
-            text-align: center;
-            margin-top: 10px;
-        }
+            .footer .nav-item {
+                flex: 1;
+                text-align: center;
+                margin-top: 10px;
+            }
 
-        .footer .nav-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+            .footer .nav-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
 
-        .footer .nav-link .icon {
-            font-size: 20px;
-        }
+                .footer .nav-link .icon {
+                    font-size: 20px;
+                }
 
-        .footer .nav-link .text {
-            font-size: 14px;
-            margin-top: 0px;
+                .footer .nav-link .text {
+                    font-size: 14px;
+                    margin-top: 0px;
+                }
+
+        main {
+            padding-bottom: 60px; /* Height of the footer */
         }
     </style>
 </head>
@@ -70,7 +87,7 @@
                 <i class="fas fa-utensils icon"></i>
                 <span class="text">Meal</span>
             </a>
-            <a class="nav-item nav-link" asp-controller="FAQ" asp-action="Index">
+            <a class="nav-item nav-link" asp-controller="Articles" asp-action="Index">
                 <i class="fas fa-question-circle icon"></i>
                 <span class="text">FAQ</span>
             </a>
