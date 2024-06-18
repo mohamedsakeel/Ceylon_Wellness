@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CeylonWellness.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240604171319_add")]
-    partial class add
+    [Migration("20240618000645_ae")]
+    partial class ae
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -251,8 +251,23 @@ namespace CeylonWellness.Web.Migrations
                     b.Property<double>("BMI")
                         .HasColumnType("float");
 
+                    b.Property<string>("Dairy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Eggs")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<float>("Height")
                         .HasColumnType("real");
+
+                    b.Property<double>("Hip")
+                        .HasColumnType("float");
+
+                    b.Property<string>("MacroPreference")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("MaintaincalAmount")
                         .HasColumnType("int");
@@ -265,6 +280,9 @@ namespace CeylonWellness.Web.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Neck")
+                        .HasColumnType("float");
+
                     b.Property<int>("NoofMealsperDay")
                         .HasColumnType("int");
 
@@ -275,8 +293,23 @@ namespace CeylonWellness.Web.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Waist")
+                        .HasColumnType("float");
+
                     b.Property<float>("Weight")
                         .HasColumnType("real");
+
+                    b.Property<string>("macropref")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("mealintakepref")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("wheyproteinpref")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
